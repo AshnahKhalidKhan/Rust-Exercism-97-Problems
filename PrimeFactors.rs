@@ -1,8 +1,10 @@
-fn main() {
-    println!("{:?}", factors(23780));
+fn main()
+{
+    println!("{:?}", factors(23780)); //Replace whatever number you want to factoriz
 }
 
-pub fn factors(n: u64) -> Vec<u64> {
+pub fn factors(n: u64) -> Vec<u64>
+{
     //unimplemented!("This should calculate the prime factors of {n}")
     // This code works but takes too long
     let mut PrimeFactors: Vec<u64> = Vec::new();
