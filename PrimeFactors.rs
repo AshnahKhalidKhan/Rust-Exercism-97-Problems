@@ -1,6 +1,6 @@
 fn main()
 {
-    println!("{:?}", factors(23780)); //Replace whatever number you want to factoriz
+    println!("{:?}", factors(23780)); //Replace 23780 with whatever number you want to factorize
 }
 
 pub fn factors(n: u64) -> Vec<u64>
