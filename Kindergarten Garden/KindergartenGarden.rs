@@ -1,14 +1,12 @@
 pub fn plants(_diagram: &str, _student: &str) -> Vec<&'static str> {
     //unimplemented!("Solve kindergarten-garden exercise");
-    /* Grass, Clover, Radishes, Violets */
+    
     let cupLines: Vec<_> = _diagram.lines().collect();
     let mut plants: Vec<char> = Vec::new();
-    // println!("{}", _student);
+    
     for line in cupLines
     {
-        // println!("{}", line);
         let cups: Vec<_> = line.chars().collect();
-        // println!("{} {}", cups[0], cups[1]);
         match _student
         {
             "Alice" =>
@@ -74,8 +72,9 @@ pub fn plants(_diagram: &str, _student: &str) -> Vec<&'static str> {
             _ => println!("Kuch bhi nahin"),
         }
     }
-    // println!("{:?}", plants);
+    
     let mut plantsFullNames: Vec<&str> = Vec::new();
+    
     for plant in plants
     {
         match plant
