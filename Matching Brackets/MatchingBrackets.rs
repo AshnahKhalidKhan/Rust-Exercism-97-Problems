@@ -4,13 +4,18 @@ pub fn brackets_are_balanced(string: &str) -> bool {
     let mut separateCharacters: Vec<char> = string.chars().collect();
     let mut bracketsMatch: bool = true;
 
-    
     println!("{:?}", separateCharacters);
+    
     while separateCharacters.len() != 0 || bracketsMatch != false
     {
         for index in 0..separateCharacters.len()
         {
-            match (separateCharacters[0], separateCharacters[index])
+            if index == 0
+            {
+                bracketsMatch = false;
+                break;
+            }
+            match (separateCharacters[0], separateCharacters[separateCharacters.len() - 1 - index])
             {
                 ('}', _) =>
                         {
@@ -29,19 +34,19 @@ pub fn brackets_are_balanced(string: &str) -> bool {
                         },
                 ('{', '}') =>
                         {
-                            separateCharacters.remove(index);
+                            separateCharacters.remove(separateCharacters.len() - 1 - index);
                             separateCharacters.remove(0);
                             break;
                         },
                 ('[', ']') =>
                         {
-                            separateCharacters.remove(index);
+                            separateCharacters.remove(separateCharacters.len() - 1 - index);
                             separateCharacters.remove(0);
                             break;
                         },
                 ('(', ')') =>
                         {
-                            separateCharacters.remove(index);
+                            separateCharacters.remove(separateCharacters.len() - 1 - index);
                             separateCharacters.remove(0);
                             break;
                         },   
