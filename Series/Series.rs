@@ -4,18 +4,26 @@ pub fn series(digits: &str, len: usize) -> Vec<String> {
     let digitsAsCharacters: Vec<char> = digits.chars().collect();
     let mut series: Vec<String> = Vec::new();
     let mut digit: usize = 0;
-    
+
+    println!("{}", digits);
+    println!("{:?}", digitsAsCharacters);
+
     while digit < digitsAsCharacters.len()
     {
         let mut digitsSet: usize = 0;
         let mut digitsSetElement: String = String::new();
-        while digitsSet < len
+        while digitsSet < len && (digit + digitsSet) < digitsAsCharacters.len()
         {
-            digitsSetElement = digitsSetElement + &digitsAsCharacters[digit].to_string();
-            digit = digit + 1;
+            println!("digit: {}, digitsSet: {}, digit+digitsSet: {}, ", digit, digitsSet, digit+digitsSet);
+            digitsSetElement = digitsSetElement + &digitsAsCharacters[digit + digitsSet].to_string();
             digitsSet = digitsSet + 1;
         }
-        series.push(digitsSetElement);
+        println!("digitsetElement: {}", digitsSetElement);
+        if digitsSetElement.len() == len
+        {
+            series.push(digitsSetElement);
+        }
+        digit = digit + 1;
     }
     series
 }
