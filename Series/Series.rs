@@ -10,8 +10,19 @@ pub fn series(digits: &str, len: usize) -> Vec<String> {
     println!("digitsAsCharacters: {:?}", digitsAsCharacters);
     println!("digitsAsCharacters.len(): {:?}", digitsAsCharacters.len());
 
+    if digitsAsCharacters.len() < len
+    {
+        return series;
+    }
+    else if digitsAsCharacters.len() == len
+    {
+        series.push(digits.to_string());
+        return series;
+    }
+    
     while digit < digitsAsCharacters.len()
     {
+        println!("digit < digitsAsCharacters.len(): {} < {}", digit, digitsAsCharacters.len());
         let mut seriesElement: String = String::new();
         while digitsSet < len && (digit + digitsSet) < digitsAsCharacters.len()
         {
