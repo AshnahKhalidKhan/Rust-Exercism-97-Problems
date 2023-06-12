@@ -10,14 +10,37 @@ pub fn brackets_are_balanced(string: &str) -> bool {
             BracketsOnly.push(SeparateCharacters[c]);
         }
     }
-
     println!("{:?}", SeparateCharacters);
     println!("{:?}", BracketsOnly);
     
     let mut bracketsMatch: bool = true;
     let mut currentbracket: usize = 0;
-    let mut backwardbracket: usize = BracketsOnly.len() - 1;
+    //let mut backwardbracket: usize = BracketsOnly.len() - 1;
 
+    while (currentbracket + 1) < BracketsOnly.len()
+    {
+        if (BracketsOnly[currentbracket] == '{' && BracketsOnly[currentbracket + 1] == '}') || (BracketsOnly[currentbracket] == '[' && BracketsOnly[currentbracket + 1] == ']') || (BracketsOnly[currentbracket] == '(' && BracketsOnly[currentbracket + 1] == ')')
+        {
+            BracketsOnly.remove(currentbracket + 1);
+            BracketsOnly.remove(currentbracket);
+            currentbracket = 0;
+        }
+        else
+        {
+            currentbracket = currentbracket + 1;
+        }
+    }
+    if BracketsOnly.len() != 0
+    {
+        bracketsMatch = false;
+    }
+    else
+    {
+        bracketsMatch = true;
+    }
+    bracketsMatch
+
+    /*
     while currentbracket <= backwardbracket
     {
         println!("{} {}", BracketsOnly[currentbracket], BracketsOnly[backwardbracket]);
@@ -42,7 +65,7 @@ pub fn brackets_are_balanced(string: &str) -> bool {
         {
             backwardbracket = backwardbracket - 1;
         }
-    }
+    }*/
     
     /*while BracketsOnly.len() != 0 || bracketsMatch != false
     {
@@ -95,6 +118,6 @@ pub fn brackets_are_balanced(string: &str) -> bool {
             }
             println!("{}", index);
         }
-    }*/
-    bracketsMatch
+    }
+    bracketsMatch*/
 }
