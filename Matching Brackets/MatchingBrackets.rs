@@ -7,7 +7,6 @@ pub fn brackets_are_balanced(string: &str) -> bool
     let mut BracketsOnly: Vec<char> = Vec::new();
     for c in 0..SeparateCharacters.len()
     {
-        //if SeparateCharacters[c] == '{' || SeparateCharacters[c] == '}' || SeparateCharacters[c] == '[' || SeparateCharacters[c] == ']' || SeparateCharacters[c] == '(' || SeparateCharacters[c] == ')'
         if BracketsPool.contains(&SeparateCharacters[c])
         {
             BracketsOnly.push(SeparateCharacters[c]);
@@ -17,7 +16,7 @@ pub fn brackets_are_balanced(string: &str) -> bool
     let mut currentbracket: usize = 0;
     while (currentbracket + 1) < BracketsOnly.len()
     {
-        if (BracketsOnly[currentbracket] == '{' && BracketsOnly[currentbracket + 1] == '}') || (BracketsOnly[currentbracket] == '[' && BracketsOnly[currentbracket + 1] == ']') || (BracketsOnly[currentbracket] == '(' && BracketsOnly[currentbracket + 1] == ')')
+        /*if (BracketsOnly[currentbracket] == '{' && BracketsOnly[currentbracket + 1] == '}') || (BracketsOnly[currentbracket] == '[' && BracketsOnly[currentbracket + 1] == ']') || (BracketsOnly[currentbracket] == '(' && BracketsOnly[currentbracket + 1] == ')')
         {
             BracketsOnly.remove(currentbracket + 1);
             BracketsOnly.remove(currentbracket);
@@ -26,7 +25,17 @@ pub fn brackets_are_balanced(string: &str) -> bool
         else
         {
             currentbracket = currentbracket + 1;
-        }
+        }*/
+        match (BracketsOnly[currentbracket], BracketsOnly[currentbracket + 1])
+        {
+            ('{', '}') | ('[', ']') | ('(', ')') =>
+                {
+                    BracketsOnly.remove(currentbracket + 1);
+                    BracketsOnly.remove(currentbracket);
+                    currentbracket = 0;
+                },
+            _ => currentbracket = currentbracket + 1
+        };
     }
     
     if BracketsOnly.len() != 0
