@@ -11,7 +11,7 @@ pub fn reply(message: &str) -> &str {
     let mut ALLCAPS: bool = true;
     for character in message.chars()
     {
-        if character.is_ascii_alphabetic == true && character == character.to_ascii_uppercase()
+        if character.is_ascii_alphabetic() == true && character == character.to_ascii_uppercase()
         {
             ALLCAPS = false;
             break;
