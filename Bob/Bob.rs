@@ -22,7 +22,7 @@ pub fn reply(message: &str) -> &str {
     //Sophisticated answer would be to use this and just be done with it: message.chars().filter(|c| !c.is_whitespace()).collect()
     for index in 0..messageBreakdown.len()
     {
-        if messageBreakdown[messageBreakdown.len() - 1 - index] == '' || messageBreakdown[messageBreakdown.len() - 1 - index].is_whitespace() == true
+        if messageBreakdown[messageBreakdown.len() - 1 - index] == '\0' || messageBreakdown[messageBreakdown.len() - 1 - index].is_whitespace() == true
         {
             messageBreakdown.remove(messageBreakdown.len() - 1 - index);
         }
