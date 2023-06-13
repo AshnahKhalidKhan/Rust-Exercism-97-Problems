@@ -7,6 +7,7 @@ pub fn reply(message: &str) -> &str {
                                         '?' => true,
                                         _ => false,
                                     };
+    println!("QuestionMarkAtEnd: {}", QuestionMarkAtEnd);
 
     let mut ALLCAPS: bool = true;
     for character in message.chars()
@@ -17,17 +18,19 @@ pub fn reply(message: &str) -> &str {
             break;
         }
     }
+    println!("AllCaps: {}", ALLCAPS);
 
-    let mut Silence: bool = true;
+    let mut Silence: bool = false;
     //Sophisticated answer would be to use this and just be done with it: message.chars().filter(|c| !c.is_whitespace()).collect()
+    let mut NotWhitespace: Vec<char> = Vec::new();
     for index in 0..messageBreakdown.len()
     {
-        if messageBreakdown[messageBreakdown.len() - 1 - index] == '\0' || messageBreakdown[messageBreakdown.len() - 1 - index].is_whitespace() == true
+        if messageBreakdown[messageBreakdown.len() - 1 - index] != '\0' && messageBreakdown[messageBreakdown.len() - 1 - index].is_whitespace() == false
         {
-            messageBreakdown.remove(messageBreakdown.len() - 1 - index);
+            NotWhitespace.push(messageBreakdown[messageBreakdown.len() - 1 - index]);
         }
     }
-    if messageBreakdown.len() == 0
+    if NotWhitespace.len() == 0
     {
         Silence = true;
     }
@@ -35,7 +38,7 @@ pub fn reply(message: &str) -> &str {
     {
         Silence = false;
     }
-    
+    println!("Silence: {}", Silence);
     match (Silence, QuestionMarkAtEnd, ALLCAPS)
     {
         (true, _, _) => "Fine. Be that way!",
