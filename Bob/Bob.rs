@@ -17,7 +17,6 @@ pub fn reply(message: &str) -> &str
         {
             messageWithoutWhitespaces.push(messageBreakdown[index]);
         }
-
         //If it is an alphabet, add it to messageWithOnlyAlphabets vector
         if messageBreakdown[index].is_ascii_alphabetic() == true
         {
