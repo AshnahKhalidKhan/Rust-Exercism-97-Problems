@@ -12,18 +12,18 @@ pub fn sublist<T: PartialEq>(A: &[T], B: &[T]) -> Comparison {
     // let mut AllAInB: bool = true;
     // let mut AllBInA: bool = true;
 
-    if A.len() == 0 && B.len() == 0
-    {
-        return Comparison::Equal;
-    }
-    else if A.len() == 0 && B.len() != 0
-    {
-        return Comparison::Sublist;
-    }
-    else if A.len() != 0 && B.len() == 0
-    {
-        return Comparison::Superlist;
-    }
+    // if A.len() == 0 && B.len() == 0
+    // {
+    //     return Comparison::Equal;
+    // }
+    // else if A.len() == 0 && B.len() != 0
+    // {
+    //     return Comparison::Sublist;
+    // }
+    // else if A.len() != 0 && B.len() == 0
+    // {
+    //     return Comparison::Superlist;
+    // }
 
 
     let mut pointerInA: usize = 0;
