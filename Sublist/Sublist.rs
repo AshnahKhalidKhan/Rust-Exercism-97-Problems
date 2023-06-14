@@ -14,6 +14,7 @@ pub fn sublist<T: PartialEq>(_first_list: &[T], _second_list: &[T]) -> Compariso
 
     let mut pointerInA: usize = 0;
     let mut pointerInB: usize = 0;
+    let mut Answer: Comparison = Comparison::Unequal;
 
     while pointerInA <= pointerInB && pointerInA < _first_list.len() && pointerInB < _second_list.len()
     {
@@ -30,18 +31,36 @@ pub fn sublist<T: PartialEq>(_first_list: &[T], _second_list: &[T]) -> Compariso
 
     if pointerInA != _first_list.len() - 1 && pointerInB == _second_list.len() - 1
     {
-        return Comparison::Unequal;
+        Answer = Comparison::Unequal;
     }
     else if pointerInA == pointerInB
     {
-        return Comparison::Equal;
+        Answer = Comparison::Equal;
     }
     else if pointerInA == _first_list.len() - 1 && _first_list.len() < _second_list.len()
     {
-        return Comparison::Sublist;
+        Answer = Comparison::Sublist;
     }
-    else
+
+    pointerInA = 0;
+    pointerInB = 0;
+    while pointerInB <= pointerInA && pointerInA < _first_list.len() && pointerInB < _second_list.len()
     {
-        return Comparison::Superlist;
+        if _second_list[pointerInB] == _first_list[pointerInA]
+        {
+            pointerInB = pointerInB + 1;
+        }
+        else
+        {
+            pointerInB = 0;
+        }
+        pointerInA = pointerInA + 1;
     }
+
+    if pointerInB == _second_list.len() - 1 && _second_list.len() < _first_list.len()
+    {
+        Answer = Comparison::Superlist;
+    }
+
+    Answer
 }
