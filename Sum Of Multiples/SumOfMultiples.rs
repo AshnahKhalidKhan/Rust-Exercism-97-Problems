@@ -20,10 +20,10 @@ pub fn sum_of_multiples(limit: u32, factors: &[u32]) -> u32
             
             for n in 1..=finalMultiplier
             {
-                if multiples.contains(&(factors[index] * n)) == false && factors[index] * n < limit
+                let multiple: u32 = factors[index] * n;
+                if multiple < limit && multiples.contains(&multiple) == false
                 {
-                    println!("{} x {} = {}", factors[index], n, factors[index] * n);
-                    multiples.push(factors[index] * n);
+                    multiples.push(multiple);
                 }
             }
         }
