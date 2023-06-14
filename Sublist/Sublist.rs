@@ -6,8 +6,7 @@ pub enum Comparison {
     Unequal,
 }
 
-pub fn sublist<T: PartialEq>(A: &[T], B: &[T]) -> Comparison
-{
+pub fn sublist<T: PartialEq>(A: &[T], B: &[T]) -> Comparison {
     //unimplemented!("Determine if the first list is equal to, sublist of, superlist of or unequal to the second list.");
 
     // let mut AllAInB: bool = true;
