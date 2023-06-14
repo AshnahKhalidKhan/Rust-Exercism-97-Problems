@@ -1,9 +1,6 @@
 pub fn sum_of_multiples(limit: u32, factors: &[u32]) -> u32
 {
     //unimplemented!("Sum the multiples of all of {factors:?} which are less than {limit}")
-
-    println!("Limit: {}", limit);
-    println!("Factors: {:?}", factors);
     
     let mut multiples: Vec<u32> = Vec::new();
     let mut finalMultiplier: u32 = 0;
@@ -17,7 +14,6 @@ pub fn sum_of_multiples(limit: u32, factors: &[u32]) -> u32
         else
         {
             finalMultiplier = limit / factors[index];
-            
             for n in 1..=finalMultiplier
             {
                 let multiple: u32 = factors[index] * n;
@@ -28,8 +24,6 @@ pub fn sum_of_multiples(limit: u32, factors: &[u32]) -> u32
             }
         }
     }
-    
-    println!("{:?}", multiples);
 
     multiples.iter().sum()
 }
