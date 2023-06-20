@@ -11,15 +11,14 @@ pub fn raindrops(n: u32) -> String {
         {
             melody = melody + "Pling".to_string();
         }
-            if (n % 5 == 0)
-            {
-                melody = melody + "Pling".to_string();
-            }
-            if (n % 7 == 0)
-            {
-                melody = melody + "Plong".to_string();
-            }
+        if (n % 5 == 0)
+        {
+            melody = melody + "Pling".to_string();
+        }
+        if (n % 7 == 0)
+        {
+            melody = melody + "Plong".to_string();
+        }
     }
 
 }
-
