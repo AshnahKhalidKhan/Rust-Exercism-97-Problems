@@ -20,5 +20,5 @@ pub fn raindrops(n: u32) -> String {
             melody = melody + "Plong".to_string();
         }
     }
-
+    melody
 }
