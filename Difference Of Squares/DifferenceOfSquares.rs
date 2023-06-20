@@ -17,10 +17,10 @@ pub fn sum_of_squares(n: u32) -> u32 {
     let mut sumOfSquares: u32 = 0;
     while number <= n
     {
-        sum = sum + (number*number);
+        sumOfSquares = sumOfSquares + (number*number);
         number = number + 1;
     }
-    squareOfSum
+    sumOfSquares
 }
 
 pub fn difference(n: u32) -> u32 {
