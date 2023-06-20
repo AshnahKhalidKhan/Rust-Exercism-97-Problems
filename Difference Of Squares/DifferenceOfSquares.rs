@@ -1,4 +1,5 @@
-pub fn square_of_sum(n: u32) -> u32 {
+pub fn square_of_sum(n: u32) -> u32
+{
     //unimplemented!("square of sum of 1...{n}")
     let mut number: u32 = 1;
     let mut sum: u32 = 0;
@@ -11,7 +12,8 @@ pub fn square_of_sum(n: u32) -> u32 {
     squareOfSum
 }
 
-pub fn sum_of_squares(n: u32) -> u32 {
+pub fn sum_of_squares(n: u32) -> u32
+{
     //unimplemented!("sum of squares of 1...{n}")
     let mut number: u32 = 1;
     let mut sumOfSquares: u32 = 0;
@@ -23,7 +25,8 @@ pub fn sum_of_squares(n: u32) -> u32 {
     sumOfSquares
 }
 
-pub fn difference(n: u32) -> u32 {
+pub fn difference(n: u32) -> u32
+{
     //unimplemented!("difference between square of sum of 1...{n} and sum of squares of 1...{n}")
     square_of_sum(n) - sum_of_squares(n)
 }
