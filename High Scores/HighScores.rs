@@ -57,6 +57,15 @@ impl<'a> HighScores<'a>
 
     pub fn personal_top_three(&self) -> Vec<u32>
     {
-        unimplemented!("Return 3 highest scores")
+        //unimplemented!("Return 3 highest scores")
+        let mut all: Vec<u32> = self.scores.clone().to_vec();
+        all.sort();
+        let mut top3: Vec<u32> = Vec::new();
+        while all.len() > 0 && top3.len() < 3
+        {
+            top3.push(all[all.len() - 1]);
+            all.remove(all.len() - 1);
+        }
+        top3
     }
 }
