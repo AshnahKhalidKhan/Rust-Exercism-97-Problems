@@ -1,6 +1,10 @@
 pub fn verse(n: u32) -> String
 {
     //unimplemented!("emit verse {n}")
+    /*
+    {n bottles, 1 bottle, No more bottles} of beer on the wall, {n bottles, 1 bottle, No more bottles} of beer.
+    {Take {one, it} down and pass it around, Go to the store and buy some more}, {n-1 bottles, 1 bottle, no more bottles} of beer on the wall.
+    */
     let mut verse: String = String::new();
     let mut firstInsert: String = String::new();
     let mut secondInsert: String = String::new();
@@ -37,11 +41,6 @@ pub fn verse(n: u32) -> String
                 }
             },
     }
-
-    /*
-    {n bottles, 1 bottle, No more bottles} of beer on the wall, {n bottles, 1 bottle, No more bottles} of beer.
-    {Take {one, it} down and pass it around, Go to the store and buy some more}, {n-1 bottles, 1 bottle, no more bottles} of beer on the wall.
-    */
     verse = firstInsert + "of beer on the wall, ";
     verse = verse + &secondInsert;
     verse = verse + "of beer.\n";
