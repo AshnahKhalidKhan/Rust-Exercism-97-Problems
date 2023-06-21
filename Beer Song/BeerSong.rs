@@ -1,22 +1,7 @@
-pub fn verse(n: u32) -> String {
+pub fn verse(n: u32) -> String
+{
     //unimplemented!("emit verse {n}")
     let mut verse: String = String::new();
-    // verse =  verse + &n.to_string();
-    // if n == 0
-    // {
-    //     verse = verse + "No more bottles of beer on the wall, no more bottles of beer."
-    // }
-    // else if n == 1
-    // {
-    //     verse = verse + "1 bottle of beer on the wall, 1 bottle of beer."
-    // }
-    // else
-    // {
-    //     verse =  verse + &n.to_string();
-    //     verse = verse + " bottles of beer on the wall, ";
-    //     verse = verse + verse =  verse + &n.to_string();
-    //     verse = verse + " bottle of beer.";
-    // }
     let mut firstInsert: String = String::new();
     let mut secondInsert: String = String::new();
     let mut thirdInsert: String = String::new();
@@ -52,21 +37,10 @@ pub fn verse(n: u32) -> String {
                 }
             },
     }
-    /*
-        3 bottles of beer on the wall, 3 bottles of beer.
-        Take one down and pass it around, 2 bottles of beer on the wall.
-        
-        2 bottles of beer on the wall, 2 bottles of beer.
-        Take one down and pass it around, 1 bottle of beer on the wall.
-        
-        1 bottle of beer on the wall, 1 bottle of beer.
-        Take it down and pass it around, no more bottles of beer on the wall.
-        
-        No more bottles of beer on the wall, no more bottles of beer.
-        Go to the store and buy some more, 99 bottles of beer on the wall.
 
-        {n bottles, 1 bottle, No more bottles} of beer on the wall, {n bottles, 1 bottle, No more bottles} of beer.
-{Take {one, it} down and pass it around, Go to the store and buy some more}, {n-1 bottles, 1 bottle, no more bottles} of beer on the wall.
+    /*
+    {n bottles, 1 bottle, No more bottles} of beer on the wall, {n bottles, 1 bottle, No more bottles} of beer.
+    {Take {one, it} down and pass it around, Go to the store and buy some more}, {n-1 bottles, 1 bottle, no more bottles} of beer on the wall.
     */
     verse = firstInsert + "of beer on the wall, ";
     verse = verse + &secondInsert;
@@ -77,7 +51,8 @@ pub fn verse(n: u32) -> String {
     verse
 }
 
-pub fn sing(start: u32, end: u32) -> String {
+pub fn sing(start: u32, end: u32) -> String
+{
     //unimplemented!("sing verses {start} to {end}, inclusive")
     let mut song: String = String::new();
     let mut n: u32 = start;
