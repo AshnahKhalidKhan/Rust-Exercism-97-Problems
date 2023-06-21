@@ -35,10 +35,10 @@ pub fn public_key(p: u64, g: u64, a: u64) -> u64
     let mut answer: u64 = 1;
     while n < a as u32
     {
-        println!("gwalay: {}", answer);
+        // println!("gwalay: {}", answer);
         //answer =  (answer * answer) % p;
         answer =  (answer * g) % p;
-        //println!("{}", answer);
+        println!("{}", answer);
         n = n + 1;
     }
     answer % p
@@ -74,10 +74,10 @@ pub fn secret(p: u64, b_pub: u64, a: u64) -> u64
     let mut answer: u64 = 1;
     while n < a as u32
     {
-        println!("bpub walau: {}", answer);
+        // println!("bpub walau: {}", answer);
         //answer =  (answer * answer) % p;
         answer =  (answer * b_pub) % p;
-        //println!("{}", answer);
+        println!("{}", answer);
         n = n + 1;
     }
     answer % p
