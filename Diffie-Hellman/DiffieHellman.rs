@@ -114,22 +114,22 @@ pub fn secret(p: u64, b_pub: u64, a: u64) -> u64
         let mut answer: u64 = 1;
         let mut n: u64 = 0;
         let mut theNumberTwo: u64 = 2;
-        //println!("g={}, a={}, p={}", g, a, p);
+        println!("g={}, a={}, p={}", b_pub, a, p);
         //println!("n={}, 2^n={}, answer={}", n, theNumberTwo.pow(n as u32), answer);
         while n < closestPowerOfTwoToGivenA
         {
             println!("n={}", n);
             if n == 0
             {
-                println!("squaring");
-                answer = (answer * answer) % p;
-                n = n + n;
-            }
-            else
-            {
                 println!("multiplying by {}", b_pub);
                 answer = (answer * b_pub) % p;
                 n = n + 1;
+            }
+            else
+            {
+                println!("squaring");
+                answer = (answer * answer) % p;
+                n = n + n;
             }
             //println!("n={}, 2^n={}, answer={}", n, theNumberTwo.pow(n as u32), answer);
         }
@@ -141,5 +141,4 @@ pub fn secret(p: u64, b_pub: u64, a: u64) -> u64
         return answer;
     }
     //b_pub.pow(a as u32) % p
-
 }
