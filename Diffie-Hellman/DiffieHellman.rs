@@ -149,7 +149,7 @@ pub fn secret(p: u64, b_pub: u64, a: u64) -> u64
         {
             println!("n={}", n);
             
-                theOtherNumber = (theOtherNumber * b_pub as u128) % p;
+                theOtherNumber = (theOtherNumber * b_pub as u128) % p as u128;
                 n = n + 1;
         }
     answer = (answer*theOtherNumber) % p as u128;
