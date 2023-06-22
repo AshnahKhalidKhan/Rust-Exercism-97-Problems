@@ -133,13 +133,20 @@ pub fn secret(p: u64, b_pub: u64, a: u64) -> u64
             }
             //println!("n={}, 2^n={}, answer={}", n, theNumberTwo.pow(n as u32), answer);
         }
+    println!("Am out");
         // while n < a
         // {
         //     answer = (answer * b_pub) % p;
         //     n = n + 1;
         // }
-        answer = ((answer % p as u128)*(b_pub.pow((a-n) as u32) as u128 % p as u128)) % p as u128;
+        let mut x: u128 = b_pub.pow((a-n) as u32) as u128;
+        x = x % p as u128;
+        println!("Is literally this the problem");
+        answer = answer*x;
+        println!("or this");
+    answer = answer % p as u128;
         return answer as u64;
     }
     //b_pub.pow(a as u32) % p
+
 }
