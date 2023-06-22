@@ -139,12 +139,20 @@ pub fn secret(p: u64, b_pub: u64, a: u64) -> u64
         //     answer = (answer * b_pub) % p;
         //     n = n + 1;
         // }
-        let mut x: u128 = b_pub.pow((a-n) as u32) as u128;
-        x = x % p as u128;
-        println!("Is literally this the problem");
-        answer = answer*x;
-        println!("or this");
-    answer = answer % p as u128;
+        // let mut x: u128 = b_pub.pow((a-n) as u32) as u128;
+        // x = x % p as u128;
+        // println!("Is literally this the problem");
+        // answer = answer*x;
+        // println!("or this");
+        let mut theOtherNumber: u128 = 1;
+        while n < a
+        {
+            println!("n={}", n);
+            
+                theOtherNumber = (theOtherNumber * b_pub as u128) % p;
+                n = n + 1;
+        }
+    answer = (answer*theOtherNumber) % p as u128;
         return answer as u64;
     }
     //b_pub.pow(a as u32) % p
