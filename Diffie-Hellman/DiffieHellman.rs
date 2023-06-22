@@ -31,17 +31,18 @@ pub fn public_key(p: u64, g: u64, a: u64) -> u64
     // }
     // //(answer % p  as u128) as u64
     // answer as u64
-    let mut n: u32 = 0;
-    let mut answer: u64 = 1;
-    while n < a as u32
+    let mut n: u128 = 0;
+    let mut answer: u128 = 1;
+    while n < a as u128
     {
         // println!("gwalay: {}", answer);
         //answer =  (answer * answer) % p;
-        answer =  (answer * g) % p;
+        //println!("(answer * g as u128):{}", (answer * g as u128));
+        answer =  (answer * g as u128) % p as u128;
         println!("{}", answer);
         n = n + 1;
     }
-    answer % p
+    answer as u64
 }
 
 pub fn secret(p: u64, b_pub: u64, a: u64) -> u64
@@ -70,15 +71,29 @@ pub fn secret(p: u64, b_pub: u64, a: u64) -> u64
     // }
     // // (answer % p  as u128) as u64
     // answer as u64
-    let mut n: u32 = 0;
-    let mut answer: u64 = 1;
-    while n < a as u32
+    
+    // let mut n: u32 = 0;
+    // let mut answer: u64 = 1;
+    // while n < a as u32
+    // {
+    //     // println!("bpub walau: {}", answer);
+    //     //answer =  (answer * answer) % p;
+    //     answer =  (answer * b_pub) % p;
+    //     println!("{}", answer);
+    //     n = n + 1;
+    // }
+    // answer % p
+    // answer as u64
+    let mut n: u128 = 0;
+    let mut answer: u128 = 1;
+    while n < a as u128
     {
-        // println!("bpub walau: {}", answer);
+        // println!("gwalay: {}", answer);
         //answer =  (answer * answer) % p;
-        answer =  (answer * b_pub) % p;
+        //println!("(answer * g as u128):{}", (answer * g as u128));
+        answer =  (answer * b_pub as u128) % p as u128;
         println!("{}", answer);
         n = n + 1;
     }
-    answer % p
+    answer as u64
 }
