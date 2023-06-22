@@ -91,4 +91,5 @@ pub fn secret(p: u64, b_pub: u64, a: u64) -> u64
     //     n = n + 1;
     // }
     // answer as u64
+    //public_key(p, b_pub, a)
 }
