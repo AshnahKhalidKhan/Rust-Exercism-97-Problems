@@ -111,34 +111,35 @@ pub fn secret(p: u64, b_pub: u64, a: u64) -> u64
     {
         let closestPowerOfTwoToGivenA: u64 = (a as f64).log2().floor() as u64;
         println!("closest power of 2 to a{} is {}", a, closestPowerOfTwoToGivenA);
-        let mut answer: u64 = 1;
+        let mut answer: u128 = 1;
         let mut n: u64 = 0;
         let mut theNumberTwo: u64 = 2;
         println!("g={}, a={}, p={}", b_pub, a, p);
         //println!("n={}, 2^n={}, answer={}", n, theNumberTwo.pow(n as u32), answer);
         while n < closestPowerOfTwoToGivenA
         {
-            println!("n={}", n);
+            println!("n={} answer={}", n, answer);
             if n == 0
             {
                 println!("multiplying by {}", b_pub);
-                answer = (answer * b_pub) % p;
+                answer = (answer * b_pub as u128) % p as u128;
                 n = n + 1;
             }
             else
             {
                 println!("squaring");
-                answer = (answer * answer) % p;
+                answer = (answer * answer) % p as u128;
                 n = n + n;
             }
             //println!("n={}, 2^n={}, answer={}", n, theNumberTwo.pow(n as u32), answer);
         }
-        while n < a
-        {
-            answer = (answer * b_pub) % p;
-            n = n + 1;
-        }
-        return answer;
+        // while n < a
+        // {
+        //     answer = (answer * b_pub) % p;
+        //     n = n + 1;
+        // }
+        answer = ((answer % p as u128)*(b_pub.pow((a-n) as u32) as u128 % p as u128)) % p as u128;
+        return answer as u64;
     }
     //b_pub.pow(a as u32) % p
 }
