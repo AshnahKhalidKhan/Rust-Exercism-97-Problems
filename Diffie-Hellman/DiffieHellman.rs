@@ -16,7 +16,7 @@ pub fn public_key(p: u64, g: u64, a: u64) -> u64
 {
     //unimplemented!("Calculate public key using prime numbers {p} and {g}, and private key {a}")
     // g.pow(a as u32) % p
-
+    //h
     if (a as f64).log2().ceil() == (a as f64).log2() && (a as f64).log2().floor() == (a as f64).log2() 
     {
         let mut answer: u64 = 1;
