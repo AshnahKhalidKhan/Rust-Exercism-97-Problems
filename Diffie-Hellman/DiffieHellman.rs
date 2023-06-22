@@ -148,20 +148,11 @@ pub fn secret(p: u64, b_pub: u64, a: u64) -> u64
         while n < a
         {
             println!("n={}", n);
-            if n % 2 != 0
-            {
                 println!("multiplying by {}", b_pub);
                 theOtherNumber = (theOtherNumber * b_pub as u128) % p as u128;
                 n = n + 1;
-            }
-            else
-            {
-                println!("squaring other number");
-                theOtherNumber = (theOtherNumber * theOtherNumber) % p as u128;
-                n = n + n;
-            }
         }
-    answer = (answer* (theOtherNumber % p as u128)) % p as u128;
+    answer = (answer*theOtherNumber) % p as u128;
         return answer as u64;
     }
     //b_pub.pow(a as u32) % p
