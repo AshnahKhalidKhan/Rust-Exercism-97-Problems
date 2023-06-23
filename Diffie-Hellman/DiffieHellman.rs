@@ -17,28 +17,6 @@ pub fn public_key(p: u64, g: u64, a: u64) -> u64
     //unimplemented!("Calculate public key using prime numbers {p} and {g}, and private key {a}")
     // g.pow(a as u32) % p
     println!("g={}, a={}, p={}", g, a, p);
-    // if (a as f64).log2().ceil() == (a as f64).log2() && (a as f64).log2().floor() == (a as f64).log2() 
-    // {
-    //     let mut answer: u64 = 1;
-    //     let mut n: u64 = 0;
-    //     let mut theNumberTwo: u64 = 2;
-    //     while n < a
-    //     {
-    //         if n == 0
-    //         {
-    //             answer = (answer * g) % p;
-    //             n = n + 1;
-    //         }
-    //         else
-    //         {
-    //             answer = (answer * answer) % p;
-    //             n = n + n;
-    //         }
-    //     }
-    //     return answer;
-    // }
-    // else
-    // {
         let mut theNumberTwo: u64 = 2;
         let closestPowerOfTwoToGivenA: u64 = theNumberTwo.pow((a as f64).log2().floor() as u32) as u64;
         println!("closest power of 2 to a{} is {}", a, closestPowerOfTwoToGivenA);
