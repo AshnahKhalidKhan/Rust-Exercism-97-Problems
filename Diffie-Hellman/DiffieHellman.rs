@@ -17,6 +17,7 @@ pub fn public_key(p: u64, g: u64, a: u64) -> u64
     //unimplemented!("Calculate public key using prime numbers {p} and {g}, and private key {a}")
     
     println!("g^a % p = {}^{} % {}", g, a, p);
+  
     /*
         Direct solution would be: g.pow(a as u32) % p
         Instead, first we find the nearest power of 2 to the given 'a'.
@@ -60,6 +61,8 @@ pub fn secret(p: u64, b_pub: u64, a: u64) -> u64
     //unimplemented!("Calculate secret key using prime number {p}, public key {b_pub}, and private key {a}")
     
     println!("b_pub^a % p = {}^{} % {}", b_pub, a, p);
+  
     //Direct solution would be: b_pub.pow(a as u32) % p
+  
     public_key(p, b_pub, a)
 }
