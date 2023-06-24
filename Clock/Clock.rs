@@ -9,13 +9,23 @@ impl Clock
     pub fn new(hours: i32, minutes: i32) -> Self
     {
         //unimplemented!("Construct a new Clock from {hours} hours and {minutes} minutes");
-        let mut h: i32 = (hours % 24) + 24;
-        let mut m: i32 = (minutes % 60) + 60;
+        let mut h: i32 = hours;
+        let mut m: i32 = minutes;
         println!("{}:{}", h, m);
-        h = h + (minutes/60);
+        while m < 0
+        {
+            m = m + 60;
+            h = h - 1;
+        }
+        while m > 59
+        {
+            m = m - 60;
+            h = h + 1;
+        }
         m = ((m % 60) + 60) % 60;
         h = ((h % 24) + 24) % 24;
         println!("{}:{}", h, m);
+        
         Self
         {
             hours: h,
