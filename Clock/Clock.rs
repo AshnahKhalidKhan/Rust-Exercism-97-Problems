@@ -9,16 +9,25 @@ impl Clock
     pub fn new(hours: i32, minutes: i32) -> Self
     {
         //unimplemented!("Construct a new Clock from {hours} hours and {minutes} minutes");
+        let mut h: i32 = hours;
+        let mut m: i32 = minutes;
+        while minutes > 59
+        {
+            h = h + 1;
+            m = m - 60;
+        }
+        h = h % 24;
         Self
         {
-            hours,
-            minutes
+            hours: h,
+            minutes: m
         }
     }
 
     pub fn add_minutes(&self, minutes: i32) -> Self
     {
-        unimplemented!("Add {minutes} minutes to existing Clock time");
+        //unimplemented!("Add {minutes} minutes to existing Clock time");
+        Clock::new(self.hours, self.minutes + minutes)
     }
 }
 
@@ -50,5 +59,12 @@ impl fmt::Debug for Clock
          .field("hours", &self.hours)
          .field("minutes", &self.minutes)
          .finish()
+    }
+}
+
+impl PartialEq for Clock
+{
+    fn eq(&self, other: &Self) -> bool {
+        (self.hours == other.hours) && (self.minutes == other.minutes)
     }
 }
