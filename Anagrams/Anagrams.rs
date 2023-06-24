@@ -12,7 +12,7 @@ pub fn anagrams_for<'a>(word: &str, possible_anagrams: &[&'a str]) -> HashSet<&'
         let mut allLowerCase: Vec<char> = i.chars().map(|c| c.to_ascii_lowercase()).collect();
         let mut lowerCaseRearranged: Vec<char> = allLowerCase.clone();
         lowerCaseRearranged.sort_unstable_by(|firstLetter, nextLetter| firstLetter.partial_cmp(nextLetter).unwrap());
-        if wordLowerCase != allLowerCase && allLowerCase == wordRearranged
+        if wordLowerCase != allLowerCase && lowerCaseRearranged == wordRearranged
         {
             Anagrams.insert(i);
         }
