@@ -11,7 +11,6 @@ impl Clock
         //unimplemented!("Construct a new Clock from {hours} hours and {minutes} minutes");
         let mut h: i32 = hours;
         let mut m: i32 = minutes;
-        println!("{}:{}", h, m);
         while m < 0
         {
             m = m + 60;
@@ -23,9 +22,7 @@ impl Clock
             h = h + 1;
         }
         m = ((m % 60) + 60) % 60;
-        h = ((h % 24) + 24) % 24;
-        println!("{}:{}", h, m);
-        
+        h = ((h % 24) + 24) % 24;        
         Self
         {
             hours: h,
