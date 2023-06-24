@@ -9,11 +9,13 @@ impl Clock
     pub fn new(hours: i32, minutes: i32) -> Self
     {
         //unimplemented!("Construct a new Clock from {hours} hours and {minutes} minutes");
-        let mut h: i32 = hours;
-        let mut m: i32 = minutes;
-        h = h + (m/60);
-        m = m % 60;
-        h = h % 24;
+        let mut h: i32 = (hours % 24) + 24;
+        let mut m: i32 = (minutes % 60) + 60;
+        println!("{}:{}", h, m);
+        h = h + (minutes/60);
+        m = ((m % 60) + 60) % 60;
+        h = ((h % 24) + 24) % 24;
+        println!("{}:{}", h, m);
         Self
         {
             hours: h,
@@ -61,7 +63,8 @@ impl fmt::Debug for Clock
 
 impl PartialEq for Clock
 {
-    fn eq(&self, other: &Self) -> bool {
-        (self.hours == other.hours) && (self.minutes == other.minutes)
+    fn eq(&self, other: &Self) -> bool
+    {
+        ((self.hours % 24) == (other.hours % 24)) && ((self.minutes % 60) == (other.minutes % 60))
     }
 }
