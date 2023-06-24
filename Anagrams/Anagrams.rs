@@ -14,13 +14,13 @@ pub fn anagrams_for<'a>(word: &str, possible_anagrams: &[&'a str]) -> HashSet<&'
     
     for i in possible_anagrams.iter()
     {
-            if i.len() == word.len()
+        if i.len() == word.len()
+        {
+            let mut allLowerCase: Vec<String> = i.chars().map(|c| c.to_lowercase().to_string()).collect();
+            if wordLowerCase != allLowerCase
             {
-                let mut allLowerCase: Vec<String> = i.chars().map(|c| c.to_lowercase().to_string()).collect();
-            if wordLowerCase != allLowerCase//sameWord == false
-            {
-    allLowerCase.sort_unstable_by(|firstLetter, nextLetter| firstLetter.partial_cmp(nextLetter).unwrap());
-                if wordRearranged == allLowerCase//sameArrangement == true
+                allLowerCase.sort_unstable_by(|firstLetter, nextLetter| firstLetter.partial_cmp(nextLetter).unwrap());
+                if wordRearranged == allLowerCase
                 {
                     Anagrams.insert(i);
                 }
