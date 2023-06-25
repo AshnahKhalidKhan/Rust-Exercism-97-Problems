@@ -4,7 +4,7 @@
 #[derive(Debug)]
 pub struct Duration
 {
-    seconds: u64
+    seconds: f64
 }
 
 impl From<u64> for Duration
@@ -14,29 +14,36 @@ impl From<u64> for Duration
         //unimplemented!("s, measured in seconds: {s}")
         Self
         {
-            seconds: s
+            seconds: s as f64
         }
-        // s as f64
     }
 }
 
 macro_rules! spaceAge
 {
-    ($planet: ident; $s:expr) =>
-    {
-        match $planet
-        {
-            Mercury => $s as f64,
-            Venus => $s as f64,
-            Earth => $s as f64,
-            Mars => $s as f64,
-            Jupiter => $s as f64,
-            Saturn => $s as f64,
-            Uranus => $s as f64,
-            Neptune => $s as f64,
-            _ => $s as f64
-        }
-    }
+    // ($planet: ident, $s:expr) =>
+    // {
+    //     match $planet
+    //     {
+    //         Mercury => $s as f64,
+    //         Venus => $s as f64,
+    //         Earth => $s as f64,
+    //         Mars => $s as f64,
+    //         Jupiter => $s as f64,
+    //         Saturn => $s as f64,
+    //         Uranus => $s as f64,
+    //         Neptune => $s as f64,
+    //         _ => $s as f64
+    //     }
+    // }
+    (Mercury, $s:expr)  => ($s);
+    (Venus, $s:expr)  => ($s);
+    (Earth, $s:expr)  => ($s);
+    (Mars, $s:expr)  => ($s);
+    (Jupiter, $s:expr)  => ($s);
+    (Saturn, $s:expr)  => ($s);
+    (Uranus, $s:expr)  => ($s);
+    (Neptune, $s:expr)  => ($s);
 }
 
 pub trait Planet
@@ -61,7 +68,7 @@ impl Planet for Mercury
 {
     fn years_during(d: &Duration) -> f64
     {
-        spaceAge!(Mercury::, d.seconds)
+        spaceAge!(Mercury, d.seconds)
     }
 }
 
