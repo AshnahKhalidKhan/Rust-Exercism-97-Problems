@@ -20,6 +20,18 @@ impl From<u64> for Duration
     }
 }
 
+macro_rules! spaceAge
+{
+    ($planet: ident, $s:expr) =>
+    {
+        match $planet
+        {
+            Mercury => $s as f64,
+            _ => $s as f64
+        }
+    }
+}
+
 pub trait Planet
 {
     fn years_during(d: &Duration) -> f64;
@@ -91,14 +103,6 @@ impl Planet for Uranus
     fn years_during(d: &Duration) -> f64
     {
         spaceAge!(Uranus, d)
-    }
-}
-
-impl Planet for Mars
-{
-    fn years_during(d: &Duration) -> f64
-    {
-        spaceAge!(Mars, d)
     }
 }
 
