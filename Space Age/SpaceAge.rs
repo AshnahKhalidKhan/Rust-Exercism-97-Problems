@@ -21,21 +21,6 @@ impl From<u64> for Duration
 
 macro_rules! spaceAge
 {
-    // ($planet: ident, $s:expr) =>
-    // {
-    //     match $planet
-    //     {
-    //         Mercury => $s as f64,
-    //         Venus => $s as f64,
-    //         Earth => $s as f64,
-    //         Mars => $s as f64,
-    //         Jupiter => $s as f64,
-    //         Saturn => $s as f64,
-    //         Uranus => $s as f64,
-    //         Neptune => $s as f64,
-    //         _ => $s as f64
-    //     }
-    // }
     (Mercury, $s:expr)  => ($s/(0.2408467*31557600.0));
     (Venus, $s:expr)  => ($s/(0.61519726*31557600.0));
     (Earth, $s:expr)  => ($s/31557600.0);
@@ -50,8 +35,7 @@ pub trait Planet
 {
     fn years_during(d: &Duration) -> f64;
     // {
-    //     //unimplemented!("convert a duration ({d:?}) to the number of years on this planet for that duration");
-    //     Planet::years_during(d.seconds)
+    //     unimplemented!("convert a duration ({d:?}) to the number of years on this planet for that duration");
     // }
 }
 
