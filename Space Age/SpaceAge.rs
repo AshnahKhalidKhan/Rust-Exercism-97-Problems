@@ -36,14 +36,14 @@ macro_rules! spaceAge
     //         _ => $s as f64
     //     }
     // }
-    (Mercury, $s:expr)  => ($s);
-    (Venus, $s:expr)  => ($s);
-    (Earth, $s:expr)  => ($s);
-    (Mars, $s:expr)  => ($s);
-    (Jupiter, $s:expr)  => ($s);
-    (Saturn, $s:expr)  => ($s);
-    (Uranus, $s:expr)  => ($s);
-    (Neptune, $s:expr)  => ($s);
+    (Mercury, $s:expr)  => ($s/0.2408467*31557600.0);
+    (Venus, $s:expr)  => ($s/(0.61519726*31557600.0);
+    (Earth, $s:expr)  => ($s/(0.61519726*31557600.0);
+    (Mars, $s:expr)  => ($s/(1.8808158*31557600.0);
+    (Jupiter, $s:expr)  => ($s/(11.862615*31557600.0);
+    (Saturn, $s:expr)  => ($s/(29.447498*31557600.0);
+    (Uranus, $s:expr)  => ($s/(84.016846*31557600.0);
+    (Neptune, $s:expr)  => ($s/(164.79132*31557600.0);
 }
 
 pub trait Planet
