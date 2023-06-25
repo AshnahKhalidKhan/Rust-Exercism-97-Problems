@@ -1,6 +1,3 @@
-// The code below is a stub. Just enough to satisfy the compiler.
-// In order to pass the tests you can add-to or change any of this code.
-
 #[derive(Debug)]
 pub struct Duration
 {
@@ -19,18 +16,7 @@ impl From<u64> for Duration
     }
 }
 
-macro_rules! spaceAge
-{
-    (Mercury, $s:expr)  => ($s/(0.2408467*31557600.0));
-    (Venus, $s:expr)  => ($s/(0.61519726*31557600.0));
-    (Earth, $s:expr)  => ($s/31557600.0);
-    (Mars, $s:expr)  => ($s/(1.8808158*31557600.0));
-    (Jupiter, $s:expr)  => ($s/(11.862615*31557600.0));
-    (Saturn, $s:expr)  => ($s/(29.447498*31557600.0));
-    (Uranus, $s:expr)  => ($s/(84.016846*31557600.0));
-    (Neptune, $s:expr)  => ($s/(164.79132*31557600.0));
-}
-
+#[macro_use]
 pub trait Planet
 {
     fn years_during(d: &Duration) -> f64;
@@ -47,6 +33,19 @@ pub struct Jupiter;
 pub struct Saturn;
 pub struct Uranus;
 pub struct Neptune;
+
+//NOTE: You need to declare macros before they are used
+macro_rules! spaceAge
+{
+    (Mercury, $s:expr)  => ($s/(0.2408467*31557600.0));
+    (Venus, $s:expr)  => ($s/(0.61519726*31557600.0));
+    (Earth, $s:expr)  => ($s/31557600.0);
+    (Mars, $s:expr)  => ($s/(1.8808158*31557600.0));
+    (Jupiter, $s:expr)  => ($s/(11.862615*31557600.0));
+    (Saturn, $s:expr)  => ($s/(29.447498*31557600.0));
+    (Uranus, $s:expr)  => ($s/(84.016846*31557600.0));
+    (Neptune, $s:expr)  => ($s/(164.79132*31557600.0));
+}
 
 impl Planet for Mercury
 {
