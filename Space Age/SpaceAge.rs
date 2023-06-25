@@ -2,31 +2,38 @@
 // In order to pass the tests you can add-to or change any of this code.
 
 #[derive(Debug)]
-pub struct Duration;
-// {
-//     seconds: u64
-// }
+pub struct Duration
+{
+    seconds: u64
+}
 
 impl From<u64> for Duration
 {
     fn from(s: u64) -> Self
     {
         //unimplemented!("s, measured in seconds: {s}")
-        // Self
-        // {
-        //     seconds: s
-        // }
-        s
+        Self
+        {
+            seconds: s
+        }
+        // s as f64
     }
 }
 
 macro_rules! spaceAge
 {
-    ($planet: ident, $s:expr) =>
+    ($planet: ident; $s:expr) =>
     {
         match $planet
         {
             Mercury => $s as f64,
+            Venus => $s as f64,
+            Earth => $s as f64,
+            Mars => $s as f64,
+            Jupiter => $s as f64,
+            Saturn => $s as f64,
+            Uranus => $s as f64,
+            Neptune => $s as f64,
             _ => $s as f64
         }
     }
@@ -37,7 +44,7 @@ pub trait Planet
     fn years_during(d: &Duration) -> f64;
     // {
     //     //unimplemented!("convert a duration ({d:?}) to the number of years on this planet for that duration");
-    //     Planet::years_during(d)
+    //     Planet::years_during(d.seconds)
     // }
 }
 
@@ -54,7 +61,7 @@ impl Planet for Mercury
 {
     fn years_during(d: &Duration) -> f64
     {
-        spaceAge!(Mercury, d)
+        spaceAge!(Mercury::, d.seconds)
     }
 }
 
@@ -62,7 +69,7 @@ impl Planet for Venus
 {
     fn years_during(d: &Duration) -> f64
     {
-        spaceAge!(Venus, d)
+        spaceAge!(Venus, d.seconds)
     }
 }
 
@@ -70,7 +77,7 @@ impl Planet for Earth
 {
     fn years_during(d: &Duration) -> f64
     {
-        spaceAge!(Earth, d)
+        spaceAge!(Earth, d.seconds)
     }
 }
 
@@ -78,7 +85,7 @@ impl Planet for Mars
 {
     fn years_during(d: &Duration) -> f64
     {
-        spaceAge!(Mars, d)
+        spaceAge!(Mars, d.seconds)
     }
 }
 
@@ -86,7 +93,7 @@ impl Planet for Jupiter
 {
     fn years_during(d: &Duration) -> f64
     {
-        spaceAge!(Jupiter, d)
+        spaceAge!(Jupiter, d.seconds)
     }
 }
 
@@ -94,7 +101,7 @@ impl Planet for Saturn
 {
     fn years_during(d: &Duration) -> f64
     {
-        spaceAge!(Saturn, d)
+        spaceAge!(Saturn, d.seconds)
     }
 }
 
@@ -102,7 +109,7 @@ impl Planet for Uranus
 {
     fn years_during(d: &Duration) -> f64
     {
-        spaceAge!(Uranus, d)
+        spaceAge!(Uranus, d.seconds)
     }
 }
 
@@ -110,6 +117,6 @@ impl Planet for Neptune
 {
     fn years_during(d: &Duration) -> f64
     {
-        spaceAge!(Neptune, d)
+        spaceAge!(Neptune, d.seconds)
     }
 }
