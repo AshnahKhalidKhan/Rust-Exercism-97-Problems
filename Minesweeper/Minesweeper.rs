@@ -25,61 +25,55 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
         else
         {
             let mut count: u64 = 0;
-            
-            //Check left up row (diagonal)
-            //Check right up row (diagonal)
-            //Check left down row (diagonal)
-            //Check right down row (diagonal)
-            
-            //Check left row
-            if (i % columns) - 1 >= 0 && allInOneRow[i - 1] == &(42 as u8)
-            {
-                count = count + 1;
-            }
-            //Check right row
-            if (i % columns) + 1 < columns && allInOneRow[i + 1] == &(42 as u8)
-            {
-                count = count + 1;
-            }
-            //Check up row
-            if (i - rows) >= 0 && allInOneRow[i - rows] == &(42 as u8)
-            {
-                count = count + 1;
-            }
-            //Check down row
-            if (i + rows) < allInOneRow.len() && allInOneRow[i + rows] == &(42 as u8)
-            {
-                count = count + 1;
-            }
+            println!("{}", ((i % columns) - 1));
+            // if (i % columns) - 1 >= 0 && allInOneRow[i - 1] == &(42 as u8)
+            // {
+            //     count = count + 1;
+            // }
+            // //Check right row
+            // if (i % columns) + 1 < columns && allInOneRow[i + 1] == &(42 as u8)
+            // {
+            //     count = count + 1;
+            // }
+            // //Check up row
+            // if (i - rows) >= 0 && allInOneRow[i - rows] == &(42 as u8)
+            // {
+            //     count = count + 1;
+            // }
+            // //Check down row
+            // if (i + rows) < allInOneRow.len() && allInOneRow[i + rows] == &(42 as u8)
+            // {
+            //     count = count + 1;
+            // }
 
-            //Check left up row (diagonal)
-            if (i % columns) - 1 >= 0 && i - rows >= 0 && allInOneRow[i - 1 - rows] == &(42 as u8)
-            {
-                count = count + 1;
-            }
-            //Check left down row (diagonal)
-            if (i % columns) - 1 >= 0 && i + rows < allInOneRow.len() && allInOneRow[i - 1 + rows] == &(42 as u8)
-            {
-                count = count + 1;
-            }
-            //Check right up row (diagonal)
-            if (i % columns) + 1 < columns && i - rows >= 0 && allInOneRow[i + 1 - rows] == &(42 as u8)
-            {
-                count = count + 1;
-            }
-            //Check right down row (diagonal)
-            if (i % columns) + 1 < columns && i + rows < allInOneRow.len() && allInOneRow[i + 1 + rows] == &(42 as u8)
-            {
-                count = count + 1;
-            }
-            if count > 0
-            {
-                numbers.push(count.to_string());
-            }
-            else
-            {
-                numbers.push('\u{a0}'.to_string());
-            }
+            // //Check left up row (diagonal)
+            // if (i % columns) - 1 >= 0 && i - rows >= 0 && allInOneRow[i - 1 - rows] == &(42 as u8)
+            // {
+            //     count = count + 1;
+            // }
+            // //Check left down row (diagonal)
+            // if (i % columns) - 1 >= 0 && i + rows < allInOneRow.len() && allInOneRow[i - 1 + rows] == &(42 as u8)
+            // {
+            //     count = count + 1;
+            // }
+            // //Check right up row (diagonal)
+            // if (i % columns) + 1 < columns && i - rows >= 0 && allInOneRow[i + 1 - rows] == &(42 as u8)
+            // {
+            //     count = count + 1;
+            // }
+            // //Check right down row (diagonal)
+            // if (i % columns) + 1 < columns && i + rows < allInOneRow.len() && allInOneRow[i + 1 + rows] == &(42 as u8)
+            // {
+            //     count = count + 1;
+            // }
+            // if count > 0
+            // {
+            //     numbers.push(count.to_string());
+            // }
+            // else
+            // {
+            //     numbers.push('\u{a0}'.to_string());
+            // }
         }
     }
     println!("{:?}", allInOneRow);
