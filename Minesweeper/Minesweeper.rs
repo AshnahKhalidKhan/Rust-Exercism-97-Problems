@@ -18,7 +18,7 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
     let mut numbers: Vec<String> = Vec::new();
     for i in 0..allInOneRow.len()
     {
-        if (allInOneRow[i] == 42)
+        if allInOneRow[i] == &(42 as u8)
         {
             numbers.push("*".to_string());
         }
@@ -32,43 +32,43 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
             //Check right down row (diagonal)
             
             //Check left row
-            if ( (i % columns) - 1 >= 0 && allInOneRow[i - 1] == 42)
+            if (i % columns) - 1 >= 0 && allInOneRow[i - 1] == &(42 as u8)
             {
                 count = count + 1;
             }
             //Check right row
-            if ( (i % columns) + 1 < columns && allInOneRow[i + 1] == 42)
+            if (i % columns) + 1 < columns && allInOneRow[i + 1] == &(42 as u8)
             {
                 count = count + 1;
             }
             //Check up row
-            if ( (i - rows) >= 0 && allInOneRow[i - rows] == 42)
+            if (i - rows) >= 0 && allInOneRow[i - rows] == &(42 as u8)
             {
                 count = count + 1;
             }
             //Check down row
-            if ( (i + rows) < allInOneRow.len() && allInOneRow[i + rows] == 42)
+            if (i + rows) < allInOneRow.len() && allInOneRow[i + rows] == &(42 as u8)
             {
                 count = count + 1;
             }
 
             //Check left up row (diagonal)
-            if ( (i % columns) - 1 >= 0 && i - rows >= 0 && allInOneRow[i - 1 - rows] == 42)
+            if (i % columns) - 1 >= 0 && i - rows >= 0 && allInOneRow[i - 1 - rows] == &(42 as u8)
             {
                 count = count + 1;
             }
             //Check left down row (diagonal)
-            if ( (i % columns) - 1 >= 0 && i + rows < allInOneRow.len() && allInOneRow[i - 1 + rows] == 42)
+            if (i % columns) - 1 >= 0 && i + rows < allInOneRow.len() && allInOneRow[i - 1 + rows] == &(42 as u8)
             {
                 count = count + 1;
             }
             //Check right up row (diagonal)
-            if ( (i % columns) + 1 < columns && i - rows >= 0 && allInOneRow[i + 1 - rows] == 42)
+            if (i % columns) + 1 < columns && i - rows >= 0 && allInOneRow[i + 1 - rows] == &(42 as u8)
             {
                 count = count + 1;
             }
             //Check right down row (diagonal)
-            if ( (i % columns) + 1 < columns && i + rows < allInOneRow.len() && allInOneRow[i + 1 + rows] == 42)
+            if (i % columns) + 1 < columns && i + rows < allInOneRow.len() && allInOneRow[i + 1 + rows] == &(42 as u8)
             {
                 count = count + 1;
             }
@@ -78,7 +78,7 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
             }
             else
             {
-                
+                numbers.push('\u{a0}'.to_string());
             }
         }
     }
