@@ -96,7 +96,6 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
         {
             count = count + 1;
         }
-        
     }
     finalnumber
 }
