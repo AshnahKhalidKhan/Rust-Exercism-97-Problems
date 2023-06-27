@@ -4,6 +4,10 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
     
     let rows = minefield.len();
     let columns = minefield[0].len();
+
+    println!("Minefield: {:?}", minefield);
+    println!("Rows: {}", rows);
+    println!("Columns: {}", columns);
     
     let mut allInOneRow: Vec<&u8> = Vec::new();
     for line in minefield.iter()
@@ -24,48 +28,78 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
         }
         else
         {
+            println!("i={}", i);
             let mut count: u64 = 0;
             let left: isize = ((i % columns) as isize) - 1;
             let right: usize = (i % columns) + 1;
-            let up: isize = (i as isize) - (rows as isize);
-            let down: usize = i + rows;
-            let leftUp: isize = (i as isize) - 1 - (rows as isize);
-            let rightUp: isize = ((i + 1) as isize) - (rows as isize);
-            let leftDown: isize = (i as isize) - 1 + (rows as isize);
-            let rightDown: usize = i + 1 + rows;
-            if left >= 0 && allInOneRow[left as usize] == &(42 as u8)
+            let up: isize = (i as isize) - (columns as isize);
+            let down: usize = i + columns;
+            let leftUp: isize = (i as isize) - 1 - (columns as isize);
+            let rightUp: isize = ((i + 1) as isize) - (columns as isize);
+            let leftDown: isize = (i as isize) - 1 + (columns as isize);
+            let rightDown: usize = i + 1 + columns;
+            if left >= 0 && allInOneRow[(i as isize - 1) as usize] == &(42 as u8)
             {
+                println!("left par hai: {} count:{}", left, count);
                 count = count + 1;
             }
-            if right < columns && allInOneRow[right] == &(42 as u8)
+            if right < columns && allInOneRow[i + 1] == &(42 as u8)
             {
+                println!("right par hai: {} count:{}", right, count);
                 count = count + 1;
             }
             if up >= 0 && allInOneRow[up as usize] == &(42 as u8)
             {
+                println!("up par hai: {} count:{}", up, count);
                 count = count + 1;
             }
-            if down < columns && allInOneRow[down] == &(42 as u8)
+            if down < allInOneRow.len() && allInOneRow[down] == &(42 as u8)
             {
+                println!("down par hai: {} count:{}", down, count);
                 count = count + 1;
             }
+            // if left >= 0 && up >= 0 && allInOneRow[leftUp as usize] == &(42 as u8)
+            // {
+            //     println!("leftUp par hai: {} count:{}", leftUp, count);
+            //     count = count + 1;
+            // }
+            // if right < columns && up >= 0 && allInOneRow[rightUp as usize] == &(42 as u8)
+            // {
+            //     println!("rightUp par hai: {} count:{}", rightUp, count);
+            //     count = count + 1;
+            // }
+            // if left >= 0 && down < columns && allInOneRow[leftDown as usize] == &(42 as u8)
+            // {
+            //     println!("leftDown par hai: {} count:{}", leftDown, count);
+            //     count = count + 1;
+            // }
+            // if right < columns && down < columns && allInOneRow[rightDown] == &(42 as u8)
+            // {
+            //     println!("rightDown par hai: {} count:{}", rightDown, count);
+            //     count = count + 1;
+            // }
+
             if left >= 0 && up >= 0 && allInOneRow[leftUp as usize] == &(42 as u8)
             {
+                println!("leftUp par hai: {} count:{}", leftUp, count);
                 count = count + 1;
             }
             if right < columns && up >= 0 && allInOneRow[rightUp as usize] == &(42 as u8)
             {
+                println!("rightUp par hai: {} count:{}", rightUp, count);
                 count = count + 1;
             }
-            if left >= 0 && down < columns && allInOneRow[leftDown as usize] == &(42 as u8)
+            if leftDown >= 0 && (leftDown as usize) < allInOneRow.len() && leftDown % (columns as isize) < (i % columns) as isize && allInOneRow[leftDown as usize] == &(42 as u8)
             {
+                println!("leftDown par hai: {} count:{}", leftDown, count);
                 count = count + 1;
             }
-            if right < columns && down < columns && allInOneRow[rightDown] == &(42 as u8)
+            if rightDown >= 0 && rightDown < allInOneRow.len() && rightDown % columns > i % columns && allInOneRow[rightDown] == &(42 as u8)
             {
+                println!("rightDown par hai: {} count:{}", rightDown, count);
                 count = count + 1;
             }
-
+            
             if count > 0
             {
                 numbers.push(count.to_string());
@@ -79,7 +113,7 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
     println!("allInOneRow: {:?}", allInOneRow);
     println!("numbers: {:?}", numbers);
     
-    let mut markedMines: Vec<String> = Vec::new();
+    let mut finalnumber: Vec<String> = Vec::new();
     let mut line: String = String::new();
     let mut count: usize = 0;
     for i in 0..numbers.len()
@@ -87,7 +121,7 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
         line = line + &numbers[i];
         if count == columns - 1
         {
-            markedMines.push(line);
+            finalnumber.push(line);
             count = 0;
             line = String::new();
         }
@@ -96,5 +130,29 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
             count = count + 1;
         }
     }
-    markedMines
+    finalnumber
+    
+    //numbers
+    /*
+        let left: isize = ((i % columns) as isize) - 1;
+        let right: usize = (i % columns) + 1;
+         0  1  2  3  4
+         5  6  7  8  9
+        10 11 12 13 14
+        15 16 17 18 19
+        20 21 22 23 24
+
+        0  1  2  3  4                0  1  2       0  1  2   
+        0  1  2  3  4                0  *  2       0  1  2    
+        0  1  2  3  4                0  1  2       0  1  2    
+        0  1  2  3  4
+        0  1  2  3  4
+
+        ((i + columns) + 1) % columns < columns
+        0  1  *  3  4
+        0  1  *  3  4
+        *  *  *  *  *
+        0  1  *  3  4
+        0  1  *  3  4
+    */
 }
