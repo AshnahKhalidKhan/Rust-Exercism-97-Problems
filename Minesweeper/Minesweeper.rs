@@ -39,7 +39,35 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
             let rightDown: usize = i + 1 + rows;
             if left >= 0 && allInOneRow[left as usize] == &(42 as u8)
             {
-                println!("Oye");
+                count = count + 1;
+            }
+            if right < columns && allInOneRow[right] == &(42 as u8)
+            {
+                count = count + 1;
+            }
+            if up >= 0 && allInOneRow[up as usize] == &(42 as u8)
+            {
+                count = count + 1;
+            }
+            if down < columns && allInOneRow[down] == &(42 as u8)
+            {
+                count = count + 1;
+            }
+            if left >= 0 && up >= 0 && allInOneRow[leftUp as usize] == &(42 as u8)
+            {
+                count = count + 1;
+            }
+            if right < columns && up >= 0 && allInOneRow[rightUp as usize] == &(42 as u8)
+            {
+                count = count + 1;
+            }
+            if left >= 0 && down < columns && allInOneRow[leftDown as usize] == &(42 as u8)
+            {
+                count = count + 1;
+            }
+            if right < columns && down < columns && allInOneRow[rightDown] == &(42 as u8)
+            {
+                count = count + 1;
             }
             //println!("{}", ((i % columns) - 1));
             // if (i % columns) - 1 >= 0 && allInOneRow[i - 1] == &(42 as u8)
@@ -82,14 +110,14 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
             // {
             //     count = count + 1;
             // }
-            // if count > 0
-            // {
-            //     numbers.push(count.to_string());
-            // }
-            // else
-            // {
-            //     numbers.push('\u{a0}'.to_string());
-            // }
+            if count > 0
+            {
+                numbers.push(count.to_string());
+            }
+            else
+            {
+                numbers.push('\u{a0}'.to_string());
+            }
         }
     }
     println!("{:?}", allInOneRow);
