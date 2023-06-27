@@ -72,12 +72,7 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
 
 
 
-            
-            // //Check up row
-            // if (i - rows) >= 0 && allInOneRow[i - rows] == &(42 as u8)
-            // {
-            //     count = count + 1;
-            // }
+
             // //Check down row
             // if (i + rows) < allInOneRow.len() && allInOneRow[i + rows] == &(42 as u8)
             // {
