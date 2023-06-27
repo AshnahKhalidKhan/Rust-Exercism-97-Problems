@@ -85,7 +85,6 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
     for i in 0..numbers.len()
     {
         line = line + &numbers[i];
-        println!("i={}, count={}, line: {}", i, count, line);
         if count == columns - 1
         {
             markedMines.push(line);
