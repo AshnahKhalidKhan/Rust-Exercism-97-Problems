@@ -79,7 +79,7 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
     println!("allInOneRow: {:?}", allInOneRow);
     println!("numbers: {:?}", numbers);
     
-    let mut finalnumber: Vec<String> = Vec::new();
+    let mut markedMines: Vec<String> = Vec::new();
     let mut line: String = String::new();
     let mut count: usize = 0;
     for i in 0..numbers.len()
@@ -88,7 +88,7 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
         println!("i={}, count={}, line: {}", i, count, line);
         if count == columns - 1
         {
-            finalnumber.push(line);
+            markedMines.push(line);
             count = 0;
             line = String::new();
         }
@@ -97,5 +97,5 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
             count = count + 1;
         }
     }
-    finalnumber
+    markedMines
 }
