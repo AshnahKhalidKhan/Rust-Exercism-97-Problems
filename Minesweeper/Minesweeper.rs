@@ -29,14 +29,18 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
         else
         {
             let mut count: u64 = 0;
-            let left: usize = 0;
-            let right: usize = 0;
-            let up: usize = 0;
-            let down: usize = 0;
-            let leftUp: usize = 0;
-            let rightUp: usize = 0;
-            let leftDown: usize = 0;
-            let rightDown: usize = 0;
+            let left: isize = ((i % columns) as isize) - 1;
+            let right: usize = (i % columns) + 1;
+            let up: isize = (i as isize) - (rows as isize);
+            let down: usize = i + rows;
+            let leftUp: isize = (i as isize) - 1 - (rows as isize);
+            let rightUp: isize = ((i + 1) as isize) - (rows as isize);
+            let leftDown: isize = (i as isize) - 1 + (rows as isize);
+            let rightDown: usize = i + 1 + rows;
+            if left >= 0 && allInOneRow[left as usize] == &(42 as u8)
+            {
+                println!("Oye");
+            }
             //println!("{}", ((i % columns) - 1));
             // if (i % columns) - 1 >= 0 && allInOneRow[i - 1] == &(42 as u8)
             // {
