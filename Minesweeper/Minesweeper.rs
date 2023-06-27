@@ -1,11 +1,23 @@
 pub fn annotate(minefield: &[&str]) -> Vec<String>
 {
     //unimplemented!("\nAnnotate each square of the given minefield with the number of mines that surround said square (blank if there are no surrounding mines):\n{minefield:#?}\n");
+    println!("Minefield: {:?}", minefield);
+    if minefield.len() == 0
+    {
+        let mut finalnumber: Vec<String> = Vec::new();
+        return finalnumber;
+    }
     
     let rows = minefield.len();
     let columns = minefield[0].len();
 
-    println!("Minefield: {:?}", minefield);
+    if columns == 0
+    {
+        let mut finalnumber: Vec<String> = Vec::new();
+        
+        return finalnumber;
+    }
+
     println!("Rows: {}", rows);
     println!("Columns: {}", columns);
     
@@ -58,27 +70,6 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
                 println!("down par hai: {} count:{}", down, count);
                 count = count + 1;
             }
-            // if left >= 0 && up >= 0 && allInOneRow[leftUp as usize] == &(42 as u8)
-            // {
-            //     println!("leftUp par hai: {} count:{}", leftUp, count);
-            //     count = count + 1;
-            // }
-            // if right < columns && up >= 0 && allInOneRow[rightUp as usize] == &(42 as u8)
-            // {
-            //     println!("rightUp par hai: {} count:{}", rightUp, count);
-            //     count = count + 1;
-            // }
-            // if left >= 0 && down < columns && allInOneRow[leftDown as usize] == &(42 as u8)
-            // {
-            //     println!("leftDown par hai: {} count:{}", leftDown, count);
-            //     count = count + 1;
-            // }
-            // if right < columns && down < columns && allInOneRow[rightDown] == &(42 as u8)
-            // {
-            //     println!("rightDown par hai: {} count:{}", rightDown, count);
-            //     count = count + 1;
-            // }
-
             if left >= 0 && up >= 0 && allInOneRow[leftUp as usize] == &(42 as u8)
             {
                 println!("leftUp par hai: {} count:{}", leftUp, count);
