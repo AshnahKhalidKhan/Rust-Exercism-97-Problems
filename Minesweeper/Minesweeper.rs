@@ -14,7 +14,7 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
     if columns == 0
     {
         let mut finalnumber: Vec<String> = Vec::new();
-        
+        finalnumber.push(minefield[0].to_string());
         return finalnumber;
     }
 
