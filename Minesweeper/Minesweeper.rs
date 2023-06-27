@@ -1,11 +1,14 @@
 pub fn annotate(minefield: &[&str]) -> Vec<String>
 {
     //unimplemented!("\nAnnotate each square of the given minefield with the number of mines that surround said square (blank if there are no surrounding mines):\n{minefield:#?}\n");
-    println!("{:?}", minefield);
-    let rows = minefield.len();
-    println!("{}", rows);
-    let columns = minefield[0].len();
-    println!("{}", columns);
+    
+    let rows: isize = minefield.len() as isize;
+    let columns: isize = minefield[0].len() as isize;
+
+    println!("Minefield: {:?}", minefield);
+    println!("Rows: {}", rows);
+    println!("Columns: {}", columns);
+    
     let mut allInOneRow: Vec<&u8> = Vec::new();
     for line in minefield.iter()
     {
@@ -15,6 +18,7 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
             allInOneRow.push(i);
         }
     }
+    
     let mut numbers: Vec<String> = Vec::new();
     for i in 0..allInOneRow.len()
     {
@@ -25,55 +29,55 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
         else
         {
             let mut count: u64 = 0;
-            println!("{}", ((i % columns) - 1));
-            // if (i % columns) - 1 >= 0 && allInOneRow[i - 1] == &(42 as u8)
-            // {
-            //     count = count + 1;
-            // }
-            // //Check right row
-            // if (i % columns) + 1 < columns && allInOneRow[i + 1] == &(42 as u8)
-            // {
-            //     count = count + 1;
-            // }
-            // //Check up row
-            // if (i - rows) >= 0 && allInOneRow[i - rows] == &(42 as u8)
-            // {
-            //     count = count + 1;
-            // }
-            // //Check down row
-            // if (i + rows) < allInOneRow.len() && allInOneRow[i + rows] == &(42 as u8)
-            // {
-            //     count = count + 1;
-            // }
+            //println!("{}", ((i % columns) as isize - 1));
+            if (i % columns) as isize - 1 >= 0 && allInOneRow[i - 1] == &(42 as u8)
+            {
+                count = count + 1;
+            }
+            //Check right row
+            if (i % columns) + 1 < columns && allInOneRow[i + 1] == &(42 as u8)
+            {
+                count = count + 1;
+            }
+            //Check up row
+            if (i - rows) as isize >= 0 && allInOneRow[i - rows] == &(42 as u8)
+            {
+                count = count + 1;
+            }
+            //Check down row
+            if (i + rows) < allInOneRow.len() && allInOneRow[i + rows] == &(42 as u8)
+            {
+                count = count + 1;
+            }
 
-            // //Check left up row (diagonal)
-            // if (i % columns) - 1 >= 0 && i - rows >= 0 && allInOneRow[i - 1 - rows] == &(42 as u8)
-            // {
-            //     count = count + 1;
-            // }
-            // //Check left down row (diagonal)
-            // if (i % columns) - 1 >= 0 && i + rows < allInOneRow.len() && allInOneRow[i - 1 + rows] == &(42 as u8)
-            // {
-            //     count = count + 1;
-            // }
-            // //Check right up row (diagonal)
-            // if (i % columns) + 1 < columns && i - rows >= 0 && allInOneRow[i + 1 - rows] == &(42 as u8)
-            // {
-            //     count = count + 1;
-            // }
-            // //Check right down row (diagonal)
-            // if (i % columns) + 1 < columns && i + rows < allInOneRow.len() && allInOneRow[i + 1 + rows] == &(42 as u8)
-            // {
-            //     count = count + 1;
-            // }
-            // if count > 0
-            // {
-            //     numbers.push(count.to_string());
-            // }
-            // else
-            // {
-            //     numbers.push('\u{a0}'.to_string());
-            // }
+            //Check left up row (diagonal)
+            if (i % columns) as isize - 1 >= 0 && i as isize - rows >= 0 && allInOneRow[i - 1 - rows] == &(42 as u8)
+            {
+                count = count + 1;
+            }
+            //Check left down row (diagonal)
+            if (i % columns) as isize - 1 >= 0 && i + rows < allInOneRow.len() && allInOneRow[i - 1 + rows] == &(42 as u8)
+            {
+                count = count + 1;
+            }
+            //Check right up row (diagonal)
+            if (i % columns) + 1 < columns && i as isize - rows >= 0 && allInOneRow[i + 1 - rows] == &(42 as u8)
+            {
+                count = count + 1;
+            }
+            //Check right down row (diagonal)
+            if (i % columns) + 1 < columns && i + rows < allInOneRow.len() && allInOneRow[i + 1 + rows] == &(42 as u8)
+            {
+                count = count + 1;
+            }
+            if count > 0
+            {
+                numbers.push(count.to_string());
+            }
+            else
+            {
+                numbers.push('\u{a0}'.to_string());
+            }
         }
     }
     println!("{:?}", allInOneRow);
@@ -87,7 +91,7 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
             line = String::new();
             
         }
-        line = line + numbers[i].to_string();
+        line = line + &numbers[i];
     }
     finalnumber
     //numbers
