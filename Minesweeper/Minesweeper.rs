@@ -69,16 +69,10 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
             {
                 count = count + 1;
             }
-            //println!("{}", ((i % columns) - 1));
-            // if (i % columns) - 1 >= 0 && allInOneRow[i - 1] == &(42 as u8)
-            // {
-            //     count = count + 1;
-            // }
-            // //Check right row
-            // if (i % columns) + 1 < columns && allInOneRow[i + 1] == &(42 as u8)
-            // {
-            //     count = count + 1;
-            // }
+
+
+
+            
             // //Check up row
             // if (i - rows) >= 0 && allInOneRow[i - rows] == &(42 as u8)
             // {
