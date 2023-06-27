@@ -4,10 +4,6 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
     
     let rows = minefield.len();
     let columns = minefield[0].len();
-
-    println!("Minefield: {:?}", minefield);
-    println!("Rows: {}", rows);
-    println!("Columns: {}", columns);
     
     let mut allInOneRow: Vec<&u8> = Vec::new();
     for line in minefield.iter()
