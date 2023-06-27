@@ -70,13 +70,6 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
                 count = count + 1;
             }
 
-
-
-
-
-
-
-
             if count > 0
             {
                 numbers.push(count.to_string());
