@@ -116,22 +116,31 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
             }
             else
             {
-                numbers.push('\u{a0}'.to_string());
+                numbers.push(" ".to_string());
             }
         }
     }
-    println!("{:?}", allInOneRow);
+    println!("allInOneRow: {:?}", allInOneRow);
+    println!("numbers: {:?}", numbers);
+    
     let mut finalnumber: Vec<String> = Vec::new();
     let mut line: String = String::new();
+    let mut count: usize = 0;
     for i in 0..numbers.len()
     {
-        if i != 0 && i % columns == 0
+        line = line + &numbers[i];
+        println!("i={}, count={}, line: {}", i, count, line);
+        if count == columns - 1
         {
             finalnumber.push(line);
+            count = 0;
             line = String::new();
-            
         }
-        line = line + &numbers[i];
+        else
+        {
+            count = count + 1;
+        }
+        
     }
     finalnumber
     
