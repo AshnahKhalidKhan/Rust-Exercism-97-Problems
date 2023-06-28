@@ -31,6 +31,7 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
             allInOneRow.push(i);
         }
     }
+    println!("allInOneRow: {:?}", allInOneRow);
     
     let mut numbers: Vec<String> = Vec::new();
     for i in 0..allInOneRow.len()
@@ -44,57 +45,60 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
             println!("i={}", i);
             let mut count: u64 = 0;
             let left: isize = ((i % columns) as isize) - 1;
-            let right: usize = (i % columns) + 1;
-            let up: isize = (i as isize) - (columns as isize);
-            let down: usize = i + columns;
-            let leftUp: isize = (i as isize) - 1 - (columns as isize);
-            let rightUp: isize = ((i + 1) as isize) - (columns as isize);
-            let leftDown: isize = (i as isize) - 1 + (columns as isize);
-            let rightDown: usize = i + 1 + columns;
             if left >= 0 && allInOneRow[(i as isize - 1) as usize] == &(42 as u8)
             {
                 count = count + 1;
             }
+            
+            let right: usize = (i % columns) + 1;
             if right < columns && allInOneRow[i + 1] == &(42 as u8)
             {
                 count = count + 1;
             }
+            
+            let up: isize = (i as isize) - (columns as isize);
             if up >= 0 && allInOneRow[up as usize] == &(42 as u8)
             {
                 count = count + 1;
             }
+            
+            let down: usize = i + columns;
             if down < allInOneRow.len() && allInOneRow[down] == &(42 as u8)
             {
                 count = count + 1;
             }
+            
+            let leftUp: isize = (i as isize) - 1 - (columns as isize);
             if left >= 0 && up >= 0 && allInOneRow[leftUp as usize] == &(42 as u8)
             {
                 count = count + 1;
             }
+            
+            let rightUp: isize = ((i + 1) as isize) - (columns as isize);
             if right < columns && up >= 0 && allInOneRow[rightUp as usize] == &(42 as u8)
             {
                 count = count + 1;
             }
+            
+            let leftDown: isize = (i as isize) - 1 + (columns as isize);
             if leftDown >= 0 && (leftDown as usize) < allInOneRow.len() && leftDown % (columns as isize) < (i % columns) as isize && allInOneRow[leftDown as usize] == &(42 as u8)
             {
                 count = count + 1;
             }
+            
+            let rightDown: usize = i + 1 + columns;
             if rightDown >= 0 && rightDown < allInOneRow.len() && rightDown % columns > i % columns && allInOneRow[rightDown] == &(42 as u8)
             {
                 count = count + 1;
             }
-            
-            if count > 0
+
+            match count
             {
-                numbers.push(count.to_string());
-            }
-            else
-            {
-                numbers.push(" ".to_string());
-            }
+                0 => numbers.push(" ".to_string()),
+                _ => numbers.push(count.to_string())
+            };
         }
     }
-    println!("allInOneRow: {:?}", allInOneRow);
     println!("numbers: {:?}", numbers);
     
     let mut line: String = String::new();
