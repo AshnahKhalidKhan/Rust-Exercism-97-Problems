@@ -28,6 +28,7 @@ pub fn is_valid(code: &str) -> bool
     }
 
     println!("Only digits: {:?}", onlyDigits);
+    
     if onlyDigits.len() < 2
     {
         false
