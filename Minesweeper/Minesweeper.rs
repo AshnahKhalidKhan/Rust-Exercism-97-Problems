@@ -1,10 +1,12 @@
 pub fn annotate(minefield: &[&str]) -> Vec<String>
 {
     //unimplemented!("\nAnnotate each square of the given minefield with the number of mines that surround said square (blank if there are no surrounding mines):\n{minefield:#?}\n");
+
     println!("Minefield: {:?}", minefield);
+    
+    let mut finalnumber: Vec<String> = Vec::new();
     if minefield.len() == 0
     {
-        let mut finalnumber: Vec<String> = Vec::new();
         return finalnumber;
     }
     
@@ -13,7 +15,6 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
 
     if columns == 0
     {
-        let mut finalnumber: Vec<String> = Vec::new();
         finalnumber.push(minefield[0].to_string());
         return finalnumber;
     }
@@ -104,7 +105,6 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
     println!("allInOneRow: {:?}", allInOneRow);
     println!("numbers: {:?}", numbers);
     
-    let mut finalnumber: Vec<String> = Vec::new();
     let mut line: String = String::new();
     let mut count: usize = 0;
     for i in 0..numbers.len()
