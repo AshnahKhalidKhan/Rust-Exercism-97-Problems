@@ -53,42 +53,34 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
             let rightDown: usize = i + 1 + columns;
             if left >= 0 && allInOneRow[(i as isize - 1) as usize] == &(42 as u8)
             {
-                println!("left par hai: {} count:{}", left, count);
                 count = count + 1;
             }
             if right < columns && allInOneRow[i + 1] == &(42 as u8)
             {
-                println!("right par hai: {} count:{}", right, count);
                 count = count + 1;
             }
             if up >= 0 && allInOneRow[up as usize] == &(42 as u8)
             {
-                println!("up par hai: {} count:{}", up, count);
                 count = count + 1;
             }
             if down < allInOneRow.len() && allInOneRow[down] == &(42 as u8)
             {
-                println!("down par hai: {} count:{}", down, count);
                 count = count + 1;
             }
             if left >= 0 && up >= 0 && allInOneRow[leftUp as usize] == &(42 as u8)
             {
-                println!("leftUp par hai: {} count:{}", leftUp, count);
                 count = count + 1;
             }
             if right < columns && up >= 0 && allInOneRow[rightUp as usize] == &(42 as u8)
             {
-                println!("rightUp par hai: {} count:{}", rightUp, count);
                 count = count + 1;
             }
             if leftDown >= 0 && (leftDown as usize) < allInOneRow.len() && leftDown % (columns as isize) < (i % columns) as isize && allInOneRow[leftDown as usize] == &(42 as u8)
             {
-                println!("leftDown par hai: {} count:{}", leftDown, count);
                 count = count + 1;
             }
             if rightDown >= 0 && rightDown < allInOneRow.len() && rightDown % columns > i % columns && allInOneRow[rightDown] == &(42 as u8)
             {
-                println!("rightDown par hai: {} count:{}", rightDown, count);
                 count = count + 1;
             }
             
