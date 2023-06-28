@@ -16,12 +16,12 @@ pub fn is_valid(code: &str) -> bool
 
     println!("Original: {}", code);
     
-    let mut onlyDigits: Vec<u128> = Vec::new();
+    let mut onlyDigits: Vec<i128> = Vec::new();
     for c in code.chars()
     {
         if c.is_ascii_digit() == true
         {
-            onlyDigits.push(c.to_digit(10).unwrap() as u128);
+            onlyDigits.push(c.to_digit(10).unwrap() as i128);
         }
     }
 
@@ -33,10 +33,12 @@ pub fn is_valid(code: &str) -> bool
     else
     {
         onlyDigits.reverse();
+
+        println!("Only digits reversed: {:?}", onlyDigits);
         
         for i in 0..onlyDigits.len()
         {
-            onlyDigits[i] = match (i % 2 == 0, onlyDigits[i]*2)
+            onlyDigits[i] = match (i % 2 == 1, onlyDigits[i]*2)
             {
                 (true, x) if x > 9 => x - 9,
                 (true, x) => x,
@@ -44,9 +46,12 @@ pub fn is_valid(code: &str) -> bool
             };
         }
     
-        println!("Only digits: {:?}", onlyDigits);
+        println!("Only digits after doubling & -9s: {:?}", onlyDigits);
 
-        let sum: u128 = onlyDigits.iter().sum();
+        let sum: i128 = onlyDigits.iter().sum();
+
+        println!("sum: {}", sum);
+        
         match sum % 10
         {
             0 => true,
