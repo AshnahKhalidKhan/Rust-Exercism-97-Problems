@@ -42,7 +42,7 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
         }
         else
         {
-            println!("i={}", i);
+            println!("i = {}", i);
             let mut count: u64 = 0;
             let left: isize = ((i % columns) as isize) - 1;
             if left >= 0 && allInOneRow[(i as isize - 1) as usize] == &(42 as u8)
@@ -119,23 +119,19 @@ pub fn annotate(minefield: &[&str]) -> Vec<String>
     }
     markedMine
     
-    //numbers
     /*
-        let left: isize = ((i % columns) as isize) - 1;
-        let right: usize = (i % columns) + 1;
          0  1  2  3  4
          5  6  7  8  9
         10 11 12 13 14
         15 16 17 18 19
         20 21 22 23 24
 
-        0  1  2  3  4                0  1  2       0  1  2   
-        0  1  2  3  4                0  *  2       0  1  2    
-        0  1  2  3  4                0  1  2       0  1  2    
+        0  1  2  3  4       0  1  2       0  1  2   
+        0  1  2  3  4       0  *  2       0  1  2    
+        0  1  2  3  4       0  1  2       0  1  2    
         0  1  2  3  4
         0  1  2  3  4
 
-        ((i + columns) + 1) % columns < columns
         0  1  *  3  4
         0  1  *  3  4
         *  *  *  *  *
