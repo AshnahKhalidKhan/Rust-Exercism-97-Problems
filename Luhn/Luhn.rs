@@ -36,7 +36,7 @@ pub fn is_valid(code: &str) -> bool
         
         for i in 0..onlyDigits.len()
         {
-            onlyDigits[i] = match (i % 2 == 0, onlyDigits[i]*onlyDigits[i])
+            onlyDigits[i] = match (i % 2 == 0, onlyDigits[i]*2)
             {
                 (true, x) if x > 9 => x - 9,
                 (true, x) => x,
