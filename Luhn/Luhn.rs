@@ -19,10 +19,12 @@ pub fn is_valid(code: &str) -> bool
     let mut onlyDigits: Vec<i128> = Vec::new();
     for c in code.chars()
     {
-        if c.is_ascii_digit() == true
+        match (c.is_ascii_digit(), c.is_whitespace())
         {
-            onlyDigits.push(c.to_digit(10).unwrap() as i128);
-        }
+            (false, false) => return false,
+            (true, _) => onlyDigits.push(c.to_digit(10).unwrap() as i128),
+            (_, true) => continue,
+        };
     }
 
     println!("Only digits: {:?}", onlyDigits);
