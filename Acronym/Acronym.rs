@@ -5,28 +5,30 @@ pub fn abbreviate(phrase: &str) -> String
     
     let mut acronym: String = String::new();
 
-    let mut words: Vec<&str> = phrase.split_whitespace().collect();
-    // let mut words: Vec<&str> = phrase.split(|c: char| c.is_alphabetic() == false || c.is_whitespace()).collect();
+    // let mut words: Vec<&str> = phrase.split_whitespace().collect();
+    let mut words: Vec<&str> = phrase.split(|c: char| c.is_alphabetic() == false && c != ''' || c.is_whitespace()).collect();
     println!("words: {:?}", words);
 
     for i in words
     {
-        let characters: Vec<char> = i.chars().collect();
-        println!("characters: {:?}", characters);
+        // let characters: Vec<char> = i.chars().collect();
+        // println!("characters: {:?}", characters);
         
-        let mut nextCharacterAdd: bool = true;
-        for c in 0..characters.len()
-        {
-            match (i, c, character[c].is_alphabetic(), nextCharacterAdd, character[c].is_uppercase(), c+1 < characters.len())
-            {
-                (_, 0, true) =>
-                {
-                    acronym = acronym + &(characters[c].to_uppercase()).to_string();
-                    nextCharacterAdd = false;
-                },
-                (_, _, _) => println!("ua")
-            };
-        }
+        // let mut nextCharacterAdd: bool = true;
+        // for c in 0..characters.len()
+        // {
+        //     match (c, character[c].is_alphabetic(), nextCharacterAdd, character[c].is_uppercase(), c+1 < characters.len())
+        //     {
+        //         //first character, a character following a non alphabet, or an uppercase character
+        //         (0, _, _, _, _) || (_, _, true, _, _) =>
+        //         {
+        //             acronym = acronym + &(characters[c].to_uppercase()).to_string();
+        //             nextCharacterAdd = false;
+        //         },
+        //         (_, false, _, _
+        //         (_, _, _) => println!("ua")
+        //     };
+        // }
                 
         // if i.chars().map(|c| if c.is_alphabetic() == true {c.to_ascii_uppercase()}).collect() == i.chars().map(|c| if c.is_alphabetic() == true {c}).collect()
         // {
