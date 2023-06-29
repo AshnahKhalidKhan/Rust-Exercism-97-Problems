@@ -1,5 +1,6 @@
 #[derive(Debug, PartialEq, Eq)]
-pub enum Error {
+pub enum Error
+{
     InvalidInputBase,
     InvalidOutputBase,
     InvalidDigit(u32),
@@ -39,13 +40,21 @@ pub enum Error {
 pub fn convert(number: &[u32], from_base: u32, to_base: u32) -> Result<Vec<u32>, Error>
 {
     //unimplemented!("Convert {number:?} from base {from_base} to base {to_base}")
-    if number == []
+    if number == [] || number.len() == 0
     {
         return Ok(vec![0]);
     }
     else
     {
-        let mut givenBaseToDecimal: Vec<u32> = Vec::new();
+        println!("number: {:?}", number);
+        println!("from_base: {}", from_base);
+        println!("to_base: {}", to_base);
+
+        let mut givenBaseToDecimal: Vec<u32> = vec![0; number.len()];
+        for n in 0..number.len()
+        {
+            givenBaseToDecimal[n] = number[n]*(from_base.pow((number.len() - 1 - n) as u32));
+        }
         return Ok(number.to_vec());
     }
 }
