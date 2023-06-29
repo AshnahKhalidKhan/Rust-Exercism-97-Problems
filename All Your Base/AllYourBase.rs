@@ -37,10 +37,28 @@ pub enum Error
 ///  * Never output leading 0 digits, unless the input number is 0, in which the output must be `[0]`.
 ///    However, your function must be able to process input with leading 0 digits.
 ///
+
+
+// pub enum Error
+// {
+//     InvalidInputBase,
+//     InvalidOutputBase,
+//     InvalidDigit(u32),
+// }
+
 pub fn convert(number: &[u32], from_base: u32, to_base: u32) -> Result<Vec<u32>, Error>
 {
     //unimplemented!("Convert {number:?} from base {from_base} to base {to_base}")
-    if number == [] || number.len() == 0
+
+    if from_base < 2
+    {
+        return Err(Error::InvalidInputBase);
+    }
+    else if to_base < 2
+    {
+        return Err(Error::InvalidOutputBase);
+    }
+    else if number == [] || number.len() == 0
     {
         return Ok(vec![0]);
     }
@@ -53,6 +71,10 @@ pub fn convert(number: &[u32], from_base: u32, to_base: u32) -> Result<Vec<u32>,
         let mut givenBaseToDecimal: Vec<u32> = vec![0; number.len()];
         for n in 0..number.len()
         {
+            if number[n] >= from_base
+            {
+                return return Err(Error::InvalidDigit(number[n]));
+            }
             givenBaseToDecimal[n] = number[n]*(from_base.pow((number.len() - 1 - n) as u32));
         }
 
