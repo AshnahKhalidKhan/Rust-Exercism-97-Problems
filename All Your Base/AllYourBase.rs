@@ -55,6 +55,17 @@ pub fn convert(number: &[u32], from_base: u32, to_base: u32) -> Result<Vec<u32>,
         {
             givenBaseToDecimal[n] = number[n]*(from_base.pow((number.len() - 1 - n) as u32));
         }
+
+        let sum: u32 = givenBaseToDecimal.iter().sum();
+
+        println!("givenBaseToDecimal: {:?}", givenBaseToDecimal);
+        println!("sum: {}", sum);
+
+        if to_base == 10
+        {
+            let mut s: String = sum.to_string();
+            return Ok(s.chars().map(|d| d.to_digit(10).unwrap()).collect());
+        }
         return Ok(number.to_vec());
     }
 }
