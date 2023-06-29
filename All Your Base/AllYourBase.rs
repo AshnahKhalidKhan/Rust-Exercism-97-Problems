@@ -56,7 +56,7 @@ pub fn convert(number: &[u32], from_base: u32, to_base: u32) -> Result<Vec<u32>,
             givenBaseToDecimal[n] = number[n]*(from_base.pow((number.len() - 1 - n) as u32));
         }
 
-        let sum: u32 = givenBaseToDecimal.iter().sum();
+        let mut sum: u32 = givenBaseToDecimal.iter().sum();
 
         println!("givenBaseToDecimal: {:?}", givenBaseToDecimal);
         println!("sum: {}", sum);
@@ -65,6 +65,15 @@ pub fn convert(number: &[u32], from_base: u32, to_base: u32) -> Result<Vec<u32>,
         {
             let mut s: String = sum.to_string();
             return Ok(s.chars().map(|d| d.to_digit(10).unwrap()).collect());
+        }
+        else
+        {
+            let mut digits: String = String::new();
+            // while sum > to_base
+            // {
+            //     digits = (sum % to_base).to_string() + &digits;
+            //     sum = sum / to_base;
+            // }
         }
         return Ok(number.to_vec());
     }
