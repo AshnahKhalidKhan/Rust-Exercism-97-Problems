@@ -6,12 +6,42 @@ pub fn abbreviate(phrase: &str) -> String
     let mut acronym: String = String::new();
 
     // let mut words: Vec<&str> = phrase.split_whitespace().collect();
-    let mut words: Vec<&str> = phrase.split(|c: char| c.is_alphabetic() == false && c != ''' || c.is_whitespace()).collect();
+    let mut words: Vec<&str> = phrase.split(|c: char| c.is_alphabetic() == false && c != '\'' || c.is_whitespace()).collect();
     println!("words: {:?}", words);
+
+    let mut newPhrase: String = String::new();
 
     for i in words
     {
-        // let characters: Vec<char> = i.chars().collect();
+        
+        let mut characters: Vec<char> = i.chars().collect();
+        if characters.len() > 0
+        {
+            characters[0] = characters[0].to_ascii_uppercase();
+        }
+        let mut allUpperCase: bool = true;
+        for x in characters.iter()
+        {
+            if x.is_alphabetic() == true && x.is_uppercase() == false
+            {
+                allUpperCase = false;
+                break;
+            }
+        }
+
+        if allUpperCase == true && characters.len() > 0
+        {
+            characters = i.chars().map(|c| c.to_ascii_lowercase()).collect();
+            characters[0] = characters[0].to_ascii_uppercase();
+        }
+        
+        let newString: String = characters.iter().collect::<String>();
+        newPhrase = newPhrase + &newString;
+        println!("characters: {:?}", characters);
+        println!("newString: {}", newString);
+        println!("newPhrase: {:?}", newPhrase);
+        
+        
         // println!("characters: {:?}", characters);
         
         // let mut nextCharacterAdd: bool = true;
@@ -49,6 +79,14 @@ pub fn abbreviate(phrase: &str) -> String
     //         acronym = acronym + &firstCharacter.to_string();
     //     }
     // }
+
+    for c in newPhrase.chars()
+    {
+        if c.is_uppercase() == true
+        {
+            acronym = acronym + &c.to_string();
+        }
+    }
     
     println!("acronym: {}", acronym);
     
