@@ -91,11 +91,13 @@ pub fn convert(number: &[u32], from_base: u32, to_base: u32) -> Result<Vec<u32>,
         else
         {
             let mut digits: String = String::new();
-            // while sum > to_base
-            // {
-            //     digits = (sum % to_base).to_string() + &digits;
-            //     sum = sum / to_base;
-            // }
+            while sum > to_base
+            {
+                println!("{} % {} = {}", sum, to_base, (sum % to_base));
+                digits = (sum % to_base).to_string() + &digits;
+                sum = sum / to_base;
+            }
+            return Ok(digits.chars().map(|d| d.to_digit(10).unwrap()).collect());
         }
         return Ok(number.to_vec());
     }
