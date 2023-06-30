@@ -82,14 +82,6 @@ pub fn convert(number: &[u32], from_base: u32, to_base: u32) -> Result<Vec<u32>,
 
         println!("givenBaseToDecimal: {:?}", givenBaseToDecimal);
         println!("sum: {}", sum);
-
-        if to_base == 10
-        {
-            let mut s: String = sum.to_string();
-            return Ok(s.chars().map(|d| d.to_digit(10).unwrap()).collect());
-        }
-        else
-        {
             let mut digits: Vec<u32> = Vec::new();
             while sum > to_base
             {
@@ -99,7 +91,6 @@ pub fn convert(number: &[u32], from_base: u32, to_base: u32) -> Result<Vec<u32>,
             }
             digits.reverse();
             return Ok(digits);
-        }
-        return Ok(number.to_vec());
+        //return Ok(number.to_vec());
     }
 }
