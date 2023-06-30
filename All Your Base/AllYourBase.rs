@@ -83,7 +83,7 @@ pub fn convert(number: &[u32], from_base: u32, to_base: u32) -> Result<Vec<u32>,
         println!("givenBaseToDecimal: {:?}", givenBaseToDecimal);
         println!("sum: {}", sum);
             let mut digits: Vec<u32> = Vec::new();
-            while sum > to_base
+            while sum > 0
             {
                 println!("{} % {} = {}", sum, to_base, (sum % to_base));
                 digits.push(sum % to_base);
