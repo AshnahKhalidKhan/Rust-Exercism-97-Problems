@@ -98,7 +98,7 @@ pub fn convert(number: &[u32], from_base: u32, to_base: u32) -> Result<Vec<u32>,
                 sum = sum / to_base;
             }
             digits.reverse();
-            return Ok(digits.chars().map(|d| d.to_digit(10).unwrap()).collect());
+            return Ok(digits);
         }
         return Ok(number.to_vec());
     }
