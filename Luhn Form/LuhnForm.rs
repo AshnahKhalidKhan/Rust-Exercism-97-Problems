@@ -4,7 +4,7 @@ impl Luhn
 {
     pub fn is_valid(&self) -> bool
     {
-        unimplemented!("Determine if the current Luhn struct contains a valid credit card number.");
+        //unimplemented!("Determine if the current Luhn struct contains a valid credit card number.");
     }
 }
 
@@ -17,7 +17,7 @@ impl<'a> From<&'a str> for Luhn
 {
     fn from(input: &'a str) -> Self
     {
-        unimplemented!("From the given input '{input}' create a new Luhn struct.");
+        //unimplemented!("From the given input '{input}' create a new Luhn struct.");
     }
 }
 
