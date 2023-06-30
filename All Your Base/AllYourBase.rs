@@ -18,43 +18,32 @@ pub fn convert(number: &[u32], from_base: u32, to_base: u32) -> Result<Vec<u32>,
     {
         return Err(Error::InvalidOutputBase);
     }
-    // else if number == [] || number.len() == 0
-    // {
-    //     return Ok(vec![0]);
-    // }
     else
     {
-        println!("number: {:?}", number);
-        println!("from_base: {}", from_base);
-        println!("to_base: {}", to_base);
-
-        let mut givenBaseToDecimal: Vec<u32> = vec![0; number.len()];
+        let mut fromBaseToDecimal: Vec<u32> = vec![0; number.len()];
         for n in 0..number.len()
         {
             if number[n] >= from_base
             {
                 return return Err(Error::InvalidDigit(number[n]));
             }
-            givenBaseToDecimal[n] = number[n]*(from_base.pow((number.len() - 1 - n) as u32));
+            fromBaseToDecimal[n] = number[n]*(from_base.pow((number.len() - 1 - n) as u32));
         }
 
-        let mut sum: u32 = givenBaseToDecimal.iter().sum();
+        let mut sum: u32 = fromBaseToDecimal.iter().sum();
 
         if sum == 0
         {
             return Ok(vec![0]);
         }
-        println!("givenBaseToDecimal: {:?}", givenBaseToDecimal);
-        println!("sum: {}", sum);
-            let mut digits: Vec<u32> = Vec::new();
+            let mut decimalToToBase: Vec<u32> = Vec::new();
             while sum > 0
             {
                 println!("{} % {} = {}", sum, to_base, (sum % to_base));
-                digits.push(sum % to_base);
+                decimalToToBase.push(sum % to_base);
                 sum = sum / to_base;
             }
-            digits.reverse();
-            return Ok(digits);
-        //return Ok(number.to_vec());
+            decimalToToBase.reverse();
+            return Ok(decimalToToBase);
     }
 }
