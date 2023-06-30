@@ -80,6 +80,10 @@ pub fn convert(number: &[u32], from_base: u32, to_base: u32) -> Result<Vec<u32>,
 
         let mut sum: u32 = givenBaseToDecimal.iter().sum();
 
+        if sum == 0
+        {
+            return Ok(vec![0]);
+        }
         println!("givenBaseToDecimal: {:?}", givenBaseToDecimal);
         println!("sum: {}", sum);
             let mut digits: Vec<u32> = Vec::new();
