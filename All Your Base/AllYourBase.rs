@@ -90,13 +90,14 @@ pub fn convert(number: &[u32], from_base: u32, to_base: u32) -> Result<Vec<u32>,
         }
         else
         {
-            let mut digits: String = String::new();
+            let mut digits: Vec<u32> = Vec::new();
             while sum > to_base
             {
                 println!("{} % {} = {}", sum, to_base, (sum % to_base));
-                digits = (sum % to_base).to_string() + &digits;
+                digits.push(sum % to_base);
                 sum = sum / to_base;
             }
+            digits.reverse();
             return Ok(digits.chars().map(|d| d.to_digit(10).unwrap()).collect());
         }
         return Ok(number.to_vec());
