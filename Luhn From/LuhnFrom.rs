@@ -16,14 +16,14 @@ impl<T> Luhn<T>
 /// by hand for the every other type presented in the test suite,
 /// but your solution will fail if a new type is presented.
 /// Perhaps there exists a better solution for this problem?
-impl<'a T> From<&'a T> for Luhn<T>
+impl<T> From<T> for Luhn<T>
 {
-    fn from(input: &'a T) -> Self
+    fn from(input: T) -> Self
     {
         //unimplemented!("From the given input '{input}' create a new Luhn struct.");
         Self
         {
-            number: input.to_string()
+            number: input
         }
     }
 }
