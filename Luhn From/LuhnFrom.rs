@@ -1,6 +1,6 @@
 pub struct Luhn<T>
 {
-    self.code: T
+    code: T
 }
 
 impl<T> Luhn<T>
@@ -73,7 +73,7 @@ impl<T> From<T> for Luhn<T>
         //unimplemented!("From the given input '{input}' create a new Luhn struct.");
         Self
         {
-            self.code: input
+            code: input
         }
     }
 }
