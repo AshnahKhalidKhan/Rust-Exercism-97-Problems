@@ -1,6 +1,6 @@
 pub struct Luhn<T>
 {
-    number: T
+    self.code: T
 }
 
 impl<T> Luhn<T>
@@ -20,10 +20,10 @@ impl<T> Luhn<T>
             Check if sum % 10 == 0
         */
     
-        println!("Original: {}", code);
+        println!("Original: {}", self.code);
         
         let mut onlyDigits: Vec<i128> = Vec::new();
-        for c in code.chars()
+        for c in self.code.chars()
         {
             match (c.is_ascii_digit(), c.is_whitespace())
             {
@@ -73,7 +73,7 @@ impl<T> From<T> for Luhn<T>
         //unimplemented!("From the given input '{input}' create a new Luhn struct.");
         Self
         {
-            number: input
+            self.code: input
         }
     }
 }
