@@ -69,9 +69,11 @@ impl<T> From<T> for Luhn<T> where String: From<T>
     fn from(input: T) -> Self
     {
         //unimplemented!("From the given input '{input}' create a new Luhn struct.");
+
+        let x = String::from(input);
         Self
         {
-            code: String::from(input)
+            code: x
         }
     }
 }
