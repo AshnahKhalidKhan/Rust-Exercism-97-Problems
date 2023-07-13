@@ -3,6 +3,18 @@ pub struct Luhn
     code: String
 }
 
+impl<T> From<T> for Luhn where T: ToString
+{
+    fn from(input: T) -> Self
+    {
+        //unimplemented!("From the given input '{input}' create a new Luhn struct.");
+        Self
+        {
+            code: input.to_string()
+        }
+    }
+}
+
 impl Luhn
 {
     pub fn is_valid(&self) -> bool
@@ -57,18 +69,6 @@ impl Luhn
                 0 => true,
                 _ => false
             }
-        }
-    }
-}
-
-impl<T> From<T> for Luhn where T: ToString
-{
-    fn from(input: T) -> Self
-    {
-        //unimplemented!("From the given input '{input}' create a new Luhn struct.");
-        Self
-        {
-            code: input.to_string()
         }
     }
 }
