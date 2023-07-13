@@ -60,18 +60,18 @@ impl<T> Luhn<T>
         //         _ => false
         //     }
         // }
-        true
+        // true
     }
 }
 
-impl<T> From<T> for Luhn<T>
+impl<T> From<T> for Luhn<T> where T: ToString
 {
     fn from(input: T) -> Self
     {
         //unimplemented!("From the given input '{input}' create a new Luhn struct.");
         Self
         {
-            code: input
+            code: input.to_string()
         }
     }
 }
