@@ -1,9 +1,9 @@
-pub struct Luhn<T>
+pub struct Luhn
 {
-    code: T
+    code: String
 }
 
-impl<T> Luhn<T>
+impl Luhn
 {
     pub fn is_valid(&self) -> bool
     {
