@@ -7,7 +7,7 @@ impl Luhn
 {
     pub fn is_valid(&self) -> bool
     {
-        unimplemented!("Determine if the current Luhn struct contains a valid credit card number.");
+        // unimplemented!("Determine if the current Luhn struct contains a valid credit card number.");
     
         /*
             Remove whitespaces
@@ -21,8 +21,6 @@ impl Luhn
         */
     
         println!("Original: {}", self.code);
-
-        let code1: String = String::from(self.code);
         
         let mut onlyDigits: Vec<i128> = Vec::new();
         for c in self.code.chars()
