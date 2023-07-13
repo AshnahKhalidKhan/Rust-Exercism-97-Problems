@@ -1,9 +1,9 @@
-pub struct Luhn
+pub struct Luhn<T>
 {
-    code: String
+    code: T
 }
 
-impl Luhn
+impl<T> Luhn<T>
 {
     pub fn is_valid(&self) -> bool
     {
@@ -20,7 +20,7 @@ impl Luhn
             Check if sum % 10 == 0
         */
     
-        //println!("Original: {:?}", self.code);
+        // println!("Original: {}", self.code);
 
         // let code1: String = String::from(self.code);
         
@@ -60,20 +60,18 @@ impl Luhn
         //         _ => false
         //     }
         // }
-        //true
+        true
     }
 }
 
-impl<T> From<T> for Luhn<T> where String: From<T>
+impl<T> From<T> for Luhn<T>
 {
     fn from(input: T) -> Self
     {
         //unimplemented!("From the given input '{input}' create a new Luhn struct.");
-
-        let x = String::from(input);
         Self
         {
-            code: x
+            code: input
         }
     }
 }
