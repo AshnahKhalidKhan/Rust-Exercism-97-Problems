@@ -64,7 +64,7 @@ impl Luhn
     }
 }
 
-impl<T> From<T> for Luhn<T> where T: ToString
+impl<T> From<T> for Luhn where T: ToString
 {
     fn from(input: T) -> Self
     {
