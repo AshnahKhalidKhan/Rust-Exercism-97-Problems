@@ -20,52 +20,50 @@ impl<T> Luhn<T>
             Check if sum % 10 == 0
         */
     
-        println!("Original: {}", self.code);
+        // println!("Original: {}", self.code);
+
+        let code1: String = String::from(self.code);
         
-        let mut onlyDigits: Vec<i128> = Vec::new();
-        for c in self.code.chars()
-        {
-            match (c.is_ascii_digit(), c.is_whitespace())
-            {
-                (false, false) => return false,
-                (true, _) => onlyDigits.push(c.to_digit(10).unwrap() as i128),
-                (_, true) => continue,
-            };
-        }
+        // let mut onlyDigits: Vec<i128> = Vec::new();
+        // for c in self.code.chars()
+        // {
+        //     match (c.is_ascii_digit(), c.is_whitespace())
+        //     {
+        //         (false, false) => return false,
+        //         (true, _) => onlyDigits.push(c.to_digit(10).unwrap() as i128),
+        //         (_, true) => continue,
+        //     };
+        // }
     
-        println!("Only digits: {:?}", onlyDigits);
+        // println!("Only digits: {:?}", onlyDigits);
         
-        if onlyDigits.len() < 2
-        {
-            false
-        }
-        else
-        {
-            onlyDigits.reverse();
-            for i in 0..onlyDigits.len()
-            {
-                onlyDigits[i] = match (i % 2 == 1, onlyDigits[i]*2)
-                {
-                    (true, x) if x > 9 => x - 9,
-                    (true, x) => x,
-                    _ => continue
-                };
-            }
-            let sum: i128 = onlyDigits.iter().sum();
-            match sum % 10
-            {
-                0 => true,
-                _ => false
-            }
-        }
+        // if onlyDigits.len() < 2
+        // {
+        //     false
+        // }
+        // else
+        // {
+        //     onlyDigits.reverse();
+        //     for i in 0..onlyDigits.len()
+        //     {
+        //         onlyDigits[i] = match (i % 2 == 1, onlyDigits[i]*2)
+        //         {
+        //             (true, x) if x > 9 => x - 9,
+        //             (true, x) => x,
+        //             _ => continue
+        //         };
+        //     }
+        //     let sum: i128 = onlyDigits.iter().sum();
+        //     match sum % 10
+        //     {
+        //         0 => true,
+        //         _ => false
+        //     }
+        // }
+        true
     }
 }
 
-/// Here is the example of how the From trait could be implemented
-/// for the &str type. Naturally, you can implement this trait
-/// by hand for the every other type presented in the test suite,
-/// but your solution will fail if a new type is presented.
-/// Perhaps there exists a better solution for this problem?
 impl<T> From<T> for Luhn<T>
 {
     fn from(input: T) -> Self
