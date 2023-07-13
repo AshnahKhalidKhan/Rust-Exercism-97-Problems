@@ -1,7 +1,8 @@
 pub struct Allergies;
 
 #[derive(Debug, PartialEq, Eq)]
-pub enum Allergen {
+pub enum Allergen
+{
     Eggs,
     Peanuts,
     Shellfish,
@@ -12,16 +13,20 @@ pub enum Allergen {
     Cats,
 }
 
-impl Allergies {
-    pub fn new(score: u32) -> Self {
+impl Allergies
+{
+    pub fn new(score: u32) -> Self
+    {
         unimplemented!("Given the '{score}' score, construct a new Allergies struct.");
     }
 
-    pub fn is_allergic_to(&self, allergen: &Allergen) -> bool {
+    pub fn is_allergic_to(&self, allergen: &Allergen) -> bool
+    {
         unimplemented!("Determine if the patient is allergic to the '{allergen:?}' allergen.");
     }
 
-    pub fn allergies(&self) -> Vec<Allergen> {
+    pub fn allergies(&self) -> Vec<Allergen>
+    {
         unimplemented!("Return the list of allergens contained within the score with which the Allergies struct was made.");
     }
 }
