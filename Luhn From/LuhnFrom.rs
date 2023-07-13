@@ -7,7 +7,7 @@ impl<T> Luhn<T>
 {
     pub fn is_valid(&self) -> bool
     {
-        //unimplemented!("Determine if the current Luhn struct contains a valid credit card number.");
+        unimplemented!("Determine if the current Luhn struct contains a valid credit card number.");
     
         /*
             Remove whitespaces
@@ -20,9 +20,9 @@ impl<T> Luhn<T>
             Check if sum % 10 == 0
         */
     
-        // println!("Original: {}", self.code);
+        //println!("Original: {:?}", self.code);
 
-        let code1: String = String::from(self.code);
+        // let code1: String = String::from(self.code);
         
         // let mut onlyDigits: Vec<i128> = Vec::new();
         // for c in self.code.chars()
@@ -60,18 +60,18 @@ impl<T> Luhn<T>
         //         _ => false
         //     }
         // }
-        true
+        //true
     }
 }
 
-impl<T> From<T> for Luhn<T>
+impl<T> From<T> for Luhn<T> where String: From<T>
 {
     fn from(input: T) -> Self
     {
         //unimplemented!("From the given input '{input}' create a new Luhn struct.");
         Self
         {
-            code: input
+            code: String::from(input)
         }
     }
 }
