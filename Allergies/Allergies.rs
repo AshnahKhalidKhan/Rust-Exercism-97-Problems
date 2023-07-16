@@ -21,7 +21,9 @@ impl Allergies
     pub fn new(score: u32) -> Self
     {
         //unimplemented!("Given the '{score}' score, construct a new Allergies struct.");
-        if score
+        let mut remainingScore: u32 = score;
+        let mut allergens: Vec<Allergen> = Vec::new();
+        if (remainingSc)
     }
 
     pub fn is_allergic_to(&self, allergen: &Allergen) -> bool
