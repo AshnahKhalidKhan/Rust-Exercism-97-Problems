@@ -5,7 +5,7 @@ pub struct Allergies
     stuffAllergicTo: Vec<Allergen>
 }
 
-#[derive(Debug, PartialEq, Eq, Clone)]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Allergen
 {
     Eggs, // 1
@@ -44,10 +44,16 @@ impl Allergies
         let Two: u32 = 2;
         while power >= 0
         {
-            println!("{} {}", power, Two.pow(power));
+            println!("{} {} {} {:?} {:?}", remainingScore, power, Two.pow(power), powerOfTwoToAllergen.get(&Two.pow(power)).unwrap(), newStuffAllergicTo);
             if remainingScore >= Two.pow(power)
             {
-                
+                let allergen = powerOfTwoToAllergen.get(&Two.pow(power)).unwrap();
+                newStuffAllergicTo.push(*allergen);
+                remainingScore = remainingScore - Two.pow(power);
+            }   
+            if power == 0
+            {
+                break;
             }
             power = power - 1;
         }
