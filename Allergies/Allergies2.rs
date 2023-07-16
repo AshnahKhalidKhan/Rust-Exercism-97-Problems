@@ -26,6 +26,15 @@ impl Allergies
             true => score - 256,
             false => score
         };
+        //7 allergies....
+        // let mut power: u32 = 7;
+        // while remainingScore > 0
+        // {
+        //     match remainingScore >= (2 as u32).pow(power)
+        //     {
+                
+        //     }
+        // }
         let mut stuffAllergicTo: Vec<Allergen> = Vec::new();
         if (remainingScore >= 128)
         {
@@ -81,14 +90,6 @@ impl Allergies
             true => true,
             false => false
         }
-        // if self.stuffAllergicTo.contains(allergen) == true
-        // {
-        //     true
-        // }
-        // else
-        // {
-        //     false
-        // }
     }
 
     pub fn allergies(&self) -> Vec<Allergen>
