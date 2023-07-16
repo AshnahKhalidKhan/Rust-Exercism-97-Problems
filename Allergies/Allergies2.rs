@@ -39,14 +39,14 @@ impl Allergies
             (128, Allergen::Cats),
         ]);
         
-        let mut newStuffAllergicTo: Vec<Allergen> = Vec::new();
+        let mut stuffAllergicTo: Vec<Allergen> = Vec::new();
         let mut power: u32 = 7;
         let Two: u32 = 2;
         while power >= 0
         {
             if remainingScore >= Two.pow(power)
             {
-                newStuffAllergicTo.push(*scoreToAllergen.get(&Two.pow(power)).unwrap());
+                stuffAllergicTo.push(*scoreToAllergen.get(&Two.pow(power)).unwrap());
                 remainingScore = remainingScore - Two.pow(power);
             }   
             match power
@@ -57,7 +57,7 @@ impl Allergies
         }
         Self
         {
-            stuffAllergicTo: newStuffAllergicTo
+            stuffAllergicTo
         }
     }
 
