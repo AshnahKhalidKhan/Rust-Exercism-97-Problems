@@ -16,6 +16,24 @@ pub enum Allergen
     Cats, //128
 }
 
+impl Clone for Allergen
+{
+    fn clone(&self) -> Allergen
+    {
+        match self
+        {
+            Allergen::Eggs => Allergen::Eggs,
+            Allergen::Peanuts => Allergen::Peanuts,
+            Allergen::Shellfish => Allergen::Shellfish,
+            Allergen::Strawberries => Allergen::Strawberries,
+            Allergen::Tomatoes => Allergen::Tomatoes,
+            Allergen::Chocolate => Allergen::Chocolate,
+            Allergen::Pollen => Allergen::Pollen,
+            Allergen::Cats => Allergen::Cats,
+        }
+    }
+}
+
 impl Allergies
 {
     pub fn new(score: u32) -> Self
@@ -84,8 +102,8 @@ impl Allergies
 
     pub fn allergies(&self) -> Vec<Allergen>
     {
-        unimplemented!("Return the list of allergens contained within the score with which the Allergies struct was made.");
+        //unimplemented!("Return the list of allergens contained within the score with which the Allergies struct was made.");
         //let mut allergicToThis: Vec<Allergen> = Vec::new();
-        
+        self.allergens.c
     }
 }
