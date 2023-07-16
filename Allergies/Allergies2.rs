@@ -1,6 +1,6 @@
 pub struct Allergies
 {
-    allergens: Vec<Allergen>
+    stuffAllergicTo: Vec<Allergen>
 }
 
 #[derive(Debug, PartialEq, Eq, Clone)]
@@ -16,24 +16,6 @@ pub enum Allergen
     Cats, //128
 }
 
-// impl Clone for Allergen
-// {
-//     fn clone(&self) -> Allergen
-//     {
-//         match self
-//         {
-//             Allergen::Eggs => Allergen::Eggs,
-//             Allergen::Peanuts => Allergen::Peanuts,
-//             Allergen::Shellfish => Allergen::Shellfish,
-//             Allergen::Strawberries => Allergen::Strawberries,
-//             Allergen::Tomatoes => Allergen::Tomatoes,
-//             Allergen::Chocolate => Allergen::Chocolate,
-//             Allergen::Pollen => Allergen::Pollen,
-//             Allergen::Cats => Allergen::Cats,
-//         }
-//     }
-// }
-
 impl Allergies
 {
     pub fn new(score: u32) -> Self
@@ -44,70 +26,74 @@ impl Allergies
             true => score - 256,
             false => score
         };
-        let mut allergens: Vec<Allergen> = Vec::new();
+        let mut stuffAllergicTo: Vec<Allergen> = Vec::new();
         if (remainingScore >= 128)
         {
-            allergens.push(Allergen::Cats);
+            stuffAllergicTo.push(Allergen::Cats);
             remainingScore = remainingScore - 128;
         }
         if (remainingScore >= 64)
         {
-            allergens.push(Allergen::Pollen);
+            stuffAllergicTo.push(Allergen::Pollen);
             remainingScore = remainingScore - 64;
         }
         if (remainingScore >= 32)
         {
-            allergens.push(Allergen::Chocolate);
+            stuffAllergicTo.push(Allergen::Chocolate);
             remainingScore = remainingScore - 32;
         }
         if (remainingScore >= 16)
         {
-            allergens.push(Allergen::Tomatoes);
+            stuffAllergicTo.push(Allergen::Tomatoes);
             remainingScore = remainingScore - 16;
         }
         if (remainingScore >= 8)
         {
-            allergens.push(Allergen::Strawberries);
+            stuffAllergicTo.push(Allergen::Strawberries);
             remainingScore = remainingScore - 8;
         }
         if (remainingScore >= 4)
         {
-            allergens.push(Allergen::Shellfish);
+            stuffAllergicTo.push(Allergen::Shellfish);
             remainingScore = remainingScore - 4;
         }
         if (remainingScore >= 2)
         {
-            allergens.push(Allergen::Peanuts);
+            stuffAllergicTo.push(Allergen::Peanuts);
             remainingScore = remainingScore - 2;
         }
         if (remainingScore >= 1)
         {
-            allergens.push(Allergen::Eggs);
+            stuffAllergicTo.push(Allergen::Eggs);
             remainingScore = remainingScore - 1;
         }
         Self
         {
-            allergens
+            stuffAllergicTo
         }
     }
 
     pub fn is_allergic_to(&self, allergen: &Allergen) -> bool
     {
         //unimplemented!("Determine if the patient is allergic to the '{allergen:?}' allergen.");
-        if self.allergens.contains(allergen) == true
+        match self.stuffAllergicTo.contains(allergen)
         {
-            true
+            true => true,
+            false => false
         }
-        else
-        {
-            false
-        }
+        // if self.stuffAllergicTo.contains(allergen) == true
+        // {
+        //     true
+        // }
+        // else
+        // {
+        //     false
+        // }
     }
 
     pub fn allergies(&self) -> Vec<Allergen>
     {
-        //unimplemented!("Return the list of allergens contained within the score with which the Allergies struct was made.");
-        //let mut allergicToThis: Vec<Allergen> = Vec::new();
-        self.allergens.clone()
+        //unimplemented!("Return the list of stuffAllergicTo contained within the score with which the Allergies struct was made.");
+        self.stuffAllergicTo.clone()
     }
 }
