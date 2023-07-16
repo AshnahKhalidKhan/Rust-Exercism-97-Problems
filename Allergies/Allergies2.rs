@@ -38,83 +38,24 @@ impl Allergies
             (64, Allergen::Pollen),
             (128, Allergen::Cats),
         ]);
-        //7 allergies....
+        
         let mut newStuffAllergicTo: Vec<Allergen> = Vec::new();
         let mut power: u32 = 7;
         let Two: u32 = 2;
         while power >= 0
         {
-            println!("{} {} {} {:?} {:?}", remainingScore, power, Two.pow(power), powerOfTwoToAllergen.get(&Two.pow(power)).unwrap(), newStuffAllergicTo);
             if remainingScore >= Two.pow(power)
             {
                 let allergen = powerOfTwoToAllergen.get(&Two.pow(power)).unwrap();
                 newStuffAllergicTo.push(*allergen);
                 remainingScore = remainingScore - Two.pow(power);
             }   
-            if power == 0
+            match power
             {
-                break;
-            }
-            power = power - 1;
+                0 => break,
+                _ => power = power - 1
+            };
         }
-        // while power >= 0
-        // {
-        //     match remainingScore >= (2 as u32).pow(power)
-        //     {
-        //         true =>
-        //         {
-        //             newStuffAllergicTo.push(powerOfTwoToAllergen.get(&(2 as u32).pow(power)).unwrap().clone());
-        //             remainingScore = remainingScore - (2 as u32).pow(power);
-        //         },
-        //         false => power = power - 1,
-        //     };
-        //     power = power - 1;
-        // }
-        // let mut stuffAllergicTo: Vec<Allergen> = Vec::new();
-        // if (remainingScore >= 128)
-        // {
-        //     stuffAllergicTo.push(Allergen::Cats);
-        //     remainingScore = remainingScore - 128;
-        // }
-        // if (remainingScore >= 64)
-        // {
-        //     stuffAllergicTo.push(Allergen::Pollen);
-        //     remainingScore = remainingScore - 64;
-        // }
-        // if (remainingScore >= 32)
-        // {
-        //     stuffAllergicTo.push(Allergen::Chocolate);
-        //     remainingScore = remainingScore - 32;
-        // }
-        // if (remainingScore >= 16)
-        // {
-        //     stuffAllergicTo.push(Allergen::Tomatoes);
-        //     remainingScore = remainingScore - 16;
-        // }
-        // if (remainingScore >= 8)
-        // {
-        //     stuffAllergicTo.push(Allergen::Strawberries);
-        //     remainingScore = remainingScore - 8;
-        // }
-        // if (remainingScore >= 4)
-        // {
-        //     stuffAllergicTo.push(Allergen::Shellfish);
-        //     remainingScore = remainingScore - 4;
-        // }
-        // if (remainingScore >= 2)
-        // {
-        //     stuffAllergicTo.push(Allergen::Peanuts);
-        //     remainingScore = remainingScore - 2;
-        // }
-        // if (remainingScore >= 1)
-        // {
-        //     stuffAllergicTo.push(Allergen::Eggs);
-        //     remainingScore = remainingScore - 1;
-        // }
-        // Self
-        // {
-        //     stuffAllergicTo
-        // }
         Self
         {
             stuffAllergicTo: newStuffAllergicTo
