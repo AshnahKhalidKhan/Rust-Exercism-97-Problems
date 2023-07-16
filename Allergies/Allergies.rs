@@ -39,7 +39,11 @@ impl Allergies
     pub fn new(score: u32) -> Self
     {
         //unimplemented!("Given the '{score}' score, construct a new Allergies struct.");
-        let mut remainingScore: u32 = score;
+        let mut remainingScore: u32 = match score > 255
+        {
+            true => score - 256,
+            false => score
+        };
         let mut allergens: Vec<Allergen> = Vec::new();
         if (remainingScore >= 128)
         {
