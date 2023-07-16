@@ -3,7 +3,7 @@ pub struct Allergies
     allergens: Vec<Allergen>
 }
 
-#[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq, Clone)]
 pub enum Allergen
 {
     Eggs, // 1
@@ -16,23 +16,23 @@ pub enum Allergen
     Cats, //128
 }
 
-impl Clone for Allergen
-{
-    fn clone(&self) -> Allergen
-    {
-        match self
-        {
-            Allergen::Eggs => Allergen::Eggs,
-            Allergen::Peanuts => Allergen::Peanuts,
-            Allergen::Shellfish => Allergen::Shellfish,
-            Allergen::Strawberries => Allergen::Strawberries,
-            Allergen::Tomatoes => Allergen::Tomatoes,
-            Allergen::Chocolate => Allergen::Chocolate,
-            Allergen::Pollen => Allergen::Pollen,
-            Allergen::Cats => Allergen::Cats,
-        }
-    }
-}
+// impl Clone for Allergen
+// {
+//     fn clone(&self) -> Allergen
+//     {
+//         match self
+//         {
+//             Allergen::Eggs => Allergen::Eggs,
+//             Allergen::Peanuts => Allergen::Peanuts,
+//             Allergen::Shellfish => Allergen::Shellfish,
+//             Allergen::Strawberries => Allergen::Strawberries,
+//             Allergen::Tomatoes => Allergen::Tomatoes,
+//             Allergen::Chocolate => Allergen::Chocolate,
+//             Allergen::Pollen => Allergen::Pollen,
+//             Allergen::Cats => Allergen::Cats,
+//         }
+//     }
+// }
 
 impl Allergies
 {
