@@ -28,7 +28,7 @@ impl Allergies
             true => score - 256,
             false => score
         };
-        let powerOfTwoToAllergen: HashMap<u32, Allergen> = HashMap::from([
+        let scoreToAllergen: HashMap<u32, Allergen> = HashMap::from([
             (1, Allergen::Eggs),
             (2, Allergen::Peanuts),
             (4, Allergen::Shellfish),
@@ -46,8 +46,7 @@ impl Allergies
         {
             if remainingScore >= Two.pow(power)
             {
-                let allergen = powerOfTwoToAllergen.get(&Two.pow(power)).unwrap();
-                newStuffAllergicTo.push(*allergen);
+                newStuffAllergicTo.push(*scoreToAllergen.get(&Two.pow(power)).unwrap());
                 remainingScore = remainingScore - Two.pow(power);
             }   
             match power
