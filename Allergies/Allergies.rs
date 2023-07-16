@@ -104,6 +104,6 @@ impl Allergies
     {
         //unimplemented!("Return the list of allergens contained within the score with which the Allergies struct was made.");
         //let mut allergicToThis: Vec<Allergen> = Vec::new();
-        self.allergens.c
+        self.allergens.clone()
     }
 }
