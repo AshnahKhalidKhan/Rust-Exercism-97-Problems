@@ -45,3 +45,16 @@ This is something called the Rustc Book (https://doc.rust-lang.org/rustc/what-is
 
 Okay whoa, this looks PRETTY useful. This is the Rust Compiler Error Index which tells us detailed explanations of compiler errors: https://doc.rust-lang.org/error_codes/error-index.html. This is epic.
 
+This is the Rust Command Line Book: https://rust-cli.github.io/book/index.html. It's supposed to tell us how to build command line applications in Rust and I _think_ this is what Danial used for piping the inputs/outputs in the Krypton code so let's see cause this is important.
+
+Also, side-note: I should probably go through the BuildYourOwnX projects for Rust too and create a plan too. (I am soooo over-complicating this again, aren't I...)
+
+I am not so sure about this resource, to be honest. It's the Rust WebAssembly Book (https://rustwasm.github.io/docs/book/). I _think_ this is like something to do with doing web-development with Rust or something...? I'm going to keep it.
+
+This is the Embedded Rust Book (https://doc.rust-lang.org/stable/embedded-book/) and honestly speaking, it looks like witchcraft. I'm not going near this thing. It's voodoo at work for sure.
+
+Ooo what's this! This is the Rust Reference (https://doc.rust-lang.org/reference/index.html) and it looks _vaguely_ familiar. It has a lot of headings... Guess we're keeping this too... (Dreading it already...)
+
+The Rustnomicon and the Rust Unstable Book (https://doc.rust-lang.org/nomicon/index.html and https://doc.rust-lang.org/nightly/unstable-book/index.html) are self-professed trouble so we will stay AWAY from these without a second thought. You're welcome.
+
+Guess that concludes our resources. I am going to make a video for this someday I think. Would I be a fun YouTuber? Nah, not likely. Anyways. Bye, GitHub. I should nickname you too. Another day, maybe.
