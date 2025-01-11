@@ -40,3 +40,8 @@ The next resource is this Editions Guide (https://doc.rust-lang.org/edition-guid
 Ooo okay so this is the Cargo Book (https://doc.rust-lang.org/cargo/index.html) and this looks like pro-programmer stuff so I am immediately closing this right now.
 
 Rustdoc Book (https://doc.rust-lang.org/rustdoc/command-line-arguments.html) also looks like too pro-programmer stuff. Would be cool if I ever made a cargo/crate in Rust one day. A legacy. Whoa. Anyways...
+
+This is something called the Rustc Book (https://doc.rust-lang.org/rustc/what-is-rustc.html) and it looks pretty useless too.
+
+Okay whoa, this looks PRETTY useful. This is the Rust Compiler Error Index which tells us detailed explanations of compiler errors: https://doc.rust-lang.org/error_codes/error-index.html. This is epic.
+
