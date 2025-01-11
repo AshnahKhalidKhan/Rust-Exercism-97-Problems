@@ -32,3 +32,11 @@ Okay, so I like Rust by Example and I _think_ this is what I used initially when
 So. Many. Choices.
 
 Let me look at the other resources too. Okay closing the Exercism website for now.
+
+Okay so this the Rust Standard Library: https://doc.rust-lang.org/std/index.html. I do not understand one bit of this. Not. One. Bit.
+
+The next resource is this Editions Guide (https://doc.rust-lang.org/edition-guide/index.html) and this looks useless. It just looks like a history of Rust thing which is okay fine, only cool if Danial tells it in his fun way. Miss that guy, yeah.
+
+Ooo okay so this is the Cargo Book (https://doc.rust-lang.org/cargo/index.html) and this looks like pro-programmer stuff so I am immediately closing this right now.
+
+Rustdoc Book (https://doc.rust-lang.org/rustdoc/command-line-arguments.html) also looks like too pro-programmer stuff. Would be cool if I ever made a cargo/crate in Rust one day. A legacy. Whoa. Anyways...
