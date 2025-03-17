@@ -73,3 +73,20 @@ And now I'm just going to commit this once and then begin writing notes and comm
 
 -----------------------------
 
+let my_variable = 0;
+const MY_CONSTANT: u8 = 0;
+static MY_STATIC: u8 = 0;
+
+Signed and unsigned integers
+
+Difference between String and str
+
+#[allow(unused_variables)] or using underscore
+
+Shadowing
+
+mut
+
+Type casting in rust: 20 as u8 or 20_u8
+
+Macros: panic!(), todo!(), println!()
