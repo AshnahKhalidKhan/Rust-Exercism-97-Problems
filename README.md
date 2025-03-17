@@ -90,3 +90,10 @@ mut
 Type casting in rust: 20 as u8 or 20_u8
 
 Macros: panic!(), todo!(), println!()
+
+String s -----------> s.clone()
+
+Ownership is hard
+
+let x = Box::new(5);
+*x = 4; //'*' is used to reference value in the Box
