@@ -58,3 +58,18 @@ Ooo what's this! This is the Rust Reference (https://doc.rust-lang.org/reference
 The Rustnomicon and the Rust Unstable Book (https://doc.rust-lang.org/nomicon/index.html and https://doc.rust-lang.org/nightly/unstable-book/index.html) are self-professed trouble so we will stay AWAY from these without a second thought. You're welcome.
 
 Guess that concludes our resources. I am going to make a video for this someday I think. Would I be a fun YouTuber? Nah, not likely. Anyways. Bye, GitHub. I should nickname you too. Another day, maybe.
+
+
+-----------------------------
+
+Well, believe it or not, I just wrote a whole set of notes and they disappeared before I could commit them because the laptop crashed. Wow. I'm just going to go write all that later again. Just putting in the resources in the meantime without the assisting thoughts:
+
+https://www.youtube.com/watch?v=BpPEoZW5IiY&t=1788s
+
+https://www.freecodecamp.org/news/rust-in-replit/
+
+And now I'm just going to commit this once and then begin writing notes and commit that second. Woo... hoo...
+
+
+-----------------------------
+
